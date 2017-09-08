@@ -31,14 +31,16 @@
             this.btnExport = new System.Windows.Forms.Button();
             this.tbTekst = new System.Windows.Forms.TextBox();
             this.pbBox = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbBox)).BeginInit();
             this.SuspendLayout();
             // 
             // btnExport
             // 
-            this.btnExport.Location = new System.Drawing.Point(158, 102);
+            this.btnExport.Location = new System.Drawing.Point(118, 83);
+            this.btnExport.Margin = new System.Windows.Forms.Padding(2);
             this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(305, 67);
+            this.btnExport.Size = new System.Drawing.Size(229, 54);
             this.btnExport.TabIndex = 0;
             this.btnExport.Text = "Export QRCODE";
             this.btnExport.UseVisualStyleBackColor = true;
@@ -46,27 +48,41 @@
             // 
             // tbTekst
             // 
-            this.tbTekst.Location = new System.Drawing.Point(158, 44);
+            this.tbTekst.Location = new System.Drawing.Point(118, 36);
+            this.tbTekst.Margin = new System.Windows.Forms.Padding(2);
             this.tbTekst.Name = "tbTekst";
-            this.tbTekst.Size = new System.Drawing.Size(305, 22);
+            this.tbTekst.Size = new System.Drawing.Size(230, 20);
             this.tbTekst.TabIndex = 1;
             // 
             // pbBox
             // 
-            this.pbBox.Location = new System.Drawing.Point(483, 12);
+            this.pbBox.Location = new System.Drawing.Point(362, 10);
+            this.pbBox.Margin = new System.Windows.Forms.Padding(2);
             this.pbBox.Name = "pbBox";
-            this.pbBox.Size = new System.Drawing.Size(500, 500);
+            this.pbBox.Size = new System.Drawing.Size(375, 406);
             this.pbBox.TabIndex = 2;
             this.pbBox.TabStop = false;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(111, 221);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(28, 13);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Test";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1000, 536);
+            this.ClientSize = new System.Drawing.Size(750, 436);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.pbBox);
             this.Controls.Add(this.tbTekst);
             this.Controls.Add(this.btnExport);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.pbBox)).EndInit();
@@ -80,6 +96,7 @@
         private System.Windows.Forms.Button btnExport;
         private System.Windows.Forms.TextBox tbTekst;
         private System.Windows.Forms.PictureBox pbBox;
+        private System.Windows.Forms.Label label1;
     }
 }
 

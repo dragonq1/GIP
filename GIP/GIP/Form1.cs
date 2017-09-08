@@ -30,5 +30,10 @@ namespace GIP
                 pbBox.Image = qrCode.GetGraphic(15);
             
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
