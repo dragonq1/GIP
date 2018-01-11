@@ -47,7 +47,7 @@ namespace GIP
 
         private void btnInloggen_Click(object sender, EventArgs e)
         {
-            if(!(txtNaam == null && txtWachtwoord == null))
+            if(!(txtNaam.Text.Equals("") || txtWachtwoord.Text.Equals("")))
             {
                 String result = comm.Login(txtNaam.Text, txtWachtwoord.Text);
                 if (result == "true")
@@ -55,12 +55,14 @@ namespace GIP
                     Menu menu = new Menu();
                     menu.Show();
                     this.Visible = false;
-                }else
+                }
+                else
                 {
                     MessageBox.Show("Oeps! Er is iets fout gelopen. Foutcode: " + result, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
 
-            }else               
+            }
+            else               
             {
                 //Niets
             }

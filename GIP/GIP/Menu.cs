@@ -16,6 +16,14 @@ namespace GIP
         public Menu()
         {
             InitializeComponent();
+            getData();
         }
+
+        public void getData()
+        {
+            dgv1.Rows.Add("Test");
+        }
+
+        
     }
 }

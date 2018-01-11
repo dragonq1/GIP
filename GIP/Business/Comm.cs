@@ -15,8 +15,6 @@ namespace Business
 
         public String Login(String gebruikersnaam, String wachtwoord)
         {
-
-
             //Vars
             String result = "false";
             MySqlConnection conn = new MySqlConnection(strConString);
@@ -30,19 +28,30 @@ namespace Business
 
                 MySqlDataReader datareader = cmd.ExecuteReader();
 
+
                 while (datareader.Read())
                 {
-                    userInfo[0] = datareader["Gebruikersnaam"].ToString();
-                    userInfo[1] = datareader["Voornaam"].ToString();
-                    userInfo[2] = datareader["Achternaam"].ToString();
-                    userInfo[3] = datareader["Saldo"].ToString();
+                    if (!(datareader.IsDBNull(0)))
+                    {
+                        userInfo[0] = datareader["Gebruikersnaam"].ToString();
+                        userInfo[1] = datareader["Voornaam"].ToString();
+                        userInfo[2] = datareader["Achternaam"].ToString();
+                        userInfo[3] = datareader["Saldo"].ToString();
+                        result = "true";
+                    }
+                    else
+                    {
+                        userInfo[0] = "";
+                        userInfo[1] = "";
+                        userInfo[2] = "";
+                        userInfo[3] = "";
+                        result = "false";
+                    }
                 }
-
-                conn.Close();
-                result = "true";
-
+                    conn.Close();
             }
-            catch(Exception e) {
+            catch (Exception e)
+            {
                 result = e.ToString();
             }
             return result;
