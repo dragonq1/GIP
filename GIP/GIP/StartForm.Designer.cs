@@ -40,9 +40,10 @@
             this.lblWelkom.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblWelkom.AutoSize = true;
             this.lblWelkom.Font = new System.Drawing.Font("Segoe UI", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWelkom.Location = new System.Drawing.Point(505, 216);
+            this.lblWelkom.Location = new System.Drawing.Point(631, 270);
+            this.lblWelkom.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblWelkom.Name = "lblWelkom";
-            this.lblWelkom.Size = new System.Drawing.Size(303, 46);
+            this.lblWelkom.Size = new System.Drawing.Size(376, 57);
             this.lblWelkom.TabIndex = 0;
             this.lblWelkom.Text = "Welkom bij NetPay";
             this.lblWelkom.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -51,9 +52,10 @@
             // 
             this.txtNaam.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtNaam.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNaam.Location = new System.Drawing.Point(561, 302);
+            this.txtNaam.Location = new System.Drawing.Point(701, 378);
+            this.txtNaam.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtNaam.Name = "txtNaam";
-            this.txtNaam.Size = new System.Drawing.Size(190, 29);
+            this.txtNaam.Size = new System.Drawing.Size(236, 34);
             this.txtNaam.TabIndex = 1;
             this.txtNaam.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -61,10 +63,11 @@
             // 
             this.txtWachtwoord.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtWachtwoord.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtWachtwoord.Location = new System.Drawing.Point(561, 337);
+            this.txtWachtwoord.Location = new System.Drawing.Point(701, 421);
+            this.txtWachtwoord.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtWachtwoord.Name = "txtWachtwoord";
             this.txtWachtwoord.PasswordChar = '*';
-            this.txtWachtwoord.Size = new System.Drawing.Size(190, 29);
+            this.txtWachtwoord.Size = new System.Drawing.Size(236, 34);
             this.txtWachtwoord.TabIndex = 2;
             this.txtWachtwoord.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -72,20 +75,23 @@
             // 
             this.btnInloggen.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnInloggen.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInloggen.Location = new System.Drawing.Point(561, 372);
+            this.btnInloggen.Location = new System.Drawing.Point(701, 465);
+            this.btnInloggen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnInloggen.Name = "btnInloggen";
-            this.btnInloggen.Size = new System.Drawing.Size(190, 37);
+            this.btnInloggen.Size = new System.Drawing.Size(238, 46);
             this.btnInloggen.TabIndex = 3;
             this.btnInloggen.Text = "Inloggen";
             this.btnInloggen.UseVisualStyleBackColor = true;
+            this.btnInloggen.Click += new System.EventHandler(this.btnInloggen_Click);
             // 
             // btnAfsluiten
             // 
             this.btnAfsluiten.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnAfsluiten.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAfsluiten.Location = new System.Drawing.Point(561, 415);
+            this.btnAfsluiten.Location = new System.Drawing.Point(701, 519);
+            this.btnAfsluiten.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAfsluiten.Name = "btnAfsluiten";
-            this.btnAfsluiten.Size = new System.Drawing.Size(190, 37);
+            this.btnAfsluiten.Size = new System.Drawing.Size(238, 46);
             this.btnAfsluiten.TabIndex = 4;
             this.btnAfsluiten.Text = "Afsluiten";
             this.btnAfsluiten.UseVisualStyleBackColor = true;
@@ -93,10 +99,10 @@
             // 
             // StartForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1313, 677);
+            this.ClientSize = new System.Drawing.Size(1641, 846);
             this.Controls.Add(this.btnAfsluiten);
             this.Controls.Add(this.btnInloggen);
             this.Controls.Add(this.txtWachtwoord);
@@ -104,6 +110,7 @@
             this.Controls.Add(this.lblWelkom);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "StartForm";
+            this.Padding = new System.Windows.Forms.Padding(25, 75, 25, 25);
             this.Style = MetroFramework.MetroColorStyle.Red;
             this.TextAlign = System.Windows.Forms.VisualStyles.HorizontalAlign.Center;
             this.Theme = MetroFramework.MetroThemeStyle.Light;

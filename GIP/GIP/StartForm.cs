@@ -14,7 +14,9 @@ namespace GIP
 {
     public partial class StartForm : MetroForm
     {
+        //Vars
         QRCodeGen QRCodeGen = new QRCodeGen();
+        Business.Comm comm = new Business.Comm();
 
 
         public StartForm()
@@ -41,6 +43,27 @@ namespace GIP
         private void btnAfsluiten_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnInloggen_Click(object sender, EventArgs e)
+        {
+            if(!(txtNaam == null && txtWachtwoord == null))
+            {
+                String result = comm.Login(txtNaam.Text, txtWachtwoord.Text);
+                if (result == "true")
+                {
+                    Menu menu = new Menu();
+                    menu.Show();
+                    this.Visible = false;
+                }else
+                {
+                    MessageBox.Show("Oeps! Er is iets fout gelopen. Foutcode: " + result, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+
+            }else               
+            {
+                //Niets
+            }
         }
     }
 }
