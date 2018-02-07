@@ -13,17 +13,28 @@ namespace GIP
 {
     public partial class Menu : MetroForm
     {
+        //Vars
+        StartForm startform = new StartForm();
+        Business.Comm comm = new Business.Comm();
+
         public Menu()
         {
             InitializeComponent();
-            getData();
         }
 
-        public void getData()
+        //Buttons
+        private void btnUitloggen_Click(object sender, EventArgs e)
         {
-            dgv1.Rows.Add("Test");
-        }
+            Boolean result = comm.ResetUser();
+            if(result)
+            {
+                startform.Show();
+                this.Visible = false;
+            }else
+            {
+                MessageBox.Show("Oeps! Er is iets fout gelopen. Foutcode: " + result, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
 
-        
+        }
     }
 }

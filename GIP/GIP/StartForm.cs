@@ -55,6 +55,10 @@ namespace GIP
                     Menu menu = new Menu();
                     menu.Show();
                     this.Visible = false;
+                }else if(result == "false")
+                {
+                    lblLogin.Visible = true;
+
                 }
                 else
                 {

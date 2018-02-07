@@ -28,49 +28,86 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgv1 = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewButtonColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv1)).BeginInit();
+            this.lblMenu = new System.Windows.Forms.Label();
+            this.btnKassa = new System.Windows.Forms.Button();
+            this.btnPM = new System.Windows.Forms.Button();
+            this.btnUitloggen = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // dgv1
+            // lblMenu
             // 
-            this.dgv1.AllowUserToDeleteRows = false;
-            this.dgv1.AllowUserToOrderColumns = true;
-            this.dgv1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1});
-            this.dgv1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv1.Location = new System.Drawing.Point(20, 60);
-            this.dgv1.Name = "dgv1";
-            this.dgv1.ReadOnly = true;
-            this.dgv1.RowTemplate.Height = 24;
-            this.dgv1.Size = new System.Drawing.Size(580, 402);
-            this.dgv1.TabIndex = 0;
+            this.lblMenu.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblMenu.AutoSize = true;
+            this.lblMenu.Font = new System.Drawing.Font("Segoe UI", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMenu.Location = new System.Drawing.Point(569, 19);
+            this.lblMenu.Name = "lblMenu";
+            this.lblMenu.Size = new System.Drawing.Size(251, 46);
+            this.lblMenu.TabIndex = 1;
+            this.lblMenu.Text = "Maak uw keuze";
+            this.lblMenu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // Column1
+            // btnKassa
             // 
-            this.Column1.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.Column1.HeaderText = "Items";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
+            this.btnKassa.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnKassa.BackColor = System.Drawing.Color.Transparent;
+            this.btnKassa.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnKassa.Location = new System.Drawing.Point(524, 202);
+            this.btnKassa.Name = "btnKassa";
+            this.btnKassa.Size = new System.Drawing.Size(340, 60);
+            this.btnKassa.TabIndex = 2;
+            this.btnKassa.Text = "Kassa";
+            this.btnKassa.UseVisualStyleBackColor = false;
+            // 
+            // btnPM
+            // 
+            this.btnPM.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnPM.BackColor = System.Drawing.Color.Transparent;
+            this.btnPM.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPM.Location = new System.Drawing.Point(524, 282);
+            this.btnPM.Name = "btnPM";
+            this.btnPM.Size = new System.Drawing.Size(340, 60);
+            this.btnPM.TabIndex = 3;
+            this.btnPM.Text = "Product manager";
+            this.btnPM.UseVisualStyleBackColor = false;
+            // 
+            // btnUitloggen
+            // 
+            this.btnUitloggen.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnUitloggen.BackColor = System.Drawing.Color.Transparent;
+            this.btnUitloggen.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUitloggen.Location = new System.Drawing.Point(524, 367);
+            this.btnUitloggen.Name = "btnUitloggen";
+            this.btnUitloggen.Size = new System.Drawing.Size(340, 60);
+            this.btnUitloggen.TabIndex = 4;
+            this.btnUitloggen.Text = "Uitloggen";
+            this.btnUitloggen.UseVisualStyleBackColor = false;
+            this.btnUitloggen.Click += new System.EventHandler(this.btnUitloggen_Click);
             // 
             // Menu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(620, 482);
-            this.Controls.Add(this.dgv1);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.ClientSize = new System.Drawing.Size(1388, 676);
+            this.Controls.Add(this.btnUitloggen);
+            this.Controls.Add(this.btnPM);
+            this.Controls.Add(this.btnKassa);
+            this.Controls.Add(this.lblMenu);
+            this.DisplayHeader = false;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Menu";
+            this.Padding = new System.Windows.Forms.Padding(15, 19, 15, 16);
             this.Text = "Menu";
-            ((System.ComponentModel.ISupportInitialize)(this.dgv1)).EndInit();
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dgv1;
-        private System.Windows.Forms.DataGridViewButtonColumn Column1;
+        private System.Windows.Forms.Label lblMenu;
+        private System.Windows.Forms.Button btnKassa;
+        private System.Windows.Forms.Button btnPM;
+        private System.Windows.Forms.Button btnUitloggen;
     }
 }

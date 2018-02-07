@@ -56,5 +56,22 @@ namespace Business
             }
             return result;
         }
+
+        public Boolean ResetUser()
+        {
+            Boolean result = false;
+            try
+            {
+                Array.Clear(userInfo, 0, userInfo.Length);
+                result = true;
+            }
+            catch (Exception e)
+            {
+                result = false;
+            }
+
+
+            return result;
+        }
     }
 }
