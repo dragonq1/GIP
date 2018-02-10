@@ -39,9 +39,10 @@
             this.lblMenu.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblMenu.AutoSize = true;
             this.lblMenu.Font = new System.Drawing.Font("Segoe UI", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMenu.Location = new System.Drawing.Point(569, 19);
+            this.lblMenu.Location = new System.Drawing.Point(430, 47);
+            this.lblMenu.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMenu.Name = "lblMenu";
-            this.lblMenu.Size = new System.Drawing.Size(251, 46);
+            this.lblMenu.Size = new System.Drawing.Size(312, 57);
             this.lblMenu.TabIndex = 1;
             this.lblMenu.Text = "Maak uw keuze";
             this.lblMenu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -51,9 +52,10 @@
             this.btnKassa.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnKassa.BackColor = System.Drawing.Color.Transparent;
             this.btnKassa.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnKassa.Location = new System.Drawing.Point(524, 202);
+            this.btnKassa.Location = new System.Drawing.Point(374, 275);
+            this.btnKassa.Margin = new System.Windows.Forms.Padding(4);
             this.btnKassa.Name = "btnKassa";
-            this.btnKassa.Size = new System.Drawing.Size(340, 60);
+            this.btnKassa.Size = new System.Drawing.Size(425, 75);
             this.btnKassa.TabIndex = 2;
             this.btnKassa.Text = "Kassa";
             this.btnKassa.UseVisualStyleBackColor = false;
@@ -63,21 +65,24 @@
             this.btnPM.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnPM.BackColor = System.Drawing.Color.Transparent;
             this.btnPM.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPM.Location = new System.Drawing.Point(524, 282);
+            this.btnPM.Location = new System.Drawing.Point(374, 375);
+            this.btnPM.Margin = new System.Windows.Forms.Padding(4);
             this.btnPM.Name = "btnPM";
-            this.btnPM.Size = new System.Drawing.Size(340, 60);
+            this.btnPM.Size = new System.Drawing.Size(425, 75);
             this.btnPM.TabIndex = 3;
             this.btnPM.Text = "Product manager";
             this.btnPM.UseVisualStyleBackColor = false;
+            this.btnPM.Click += new System.EventHandler(this.btnPM_Click);
             // 
             // btnUitloggen
             // 
             this.btnUitloggen.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnUitloggen.BackColor = System.Drawing.Color.Transparent;
             this.btnUitloggen.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUitloggen.Location = new System.Drawing.Point(524, 367);
+            this.btnUitloggen.Location = new System.Drawing.Point(374, 482);
+            this.btnUitloggen.Margin = new System.Windows.Forms.Padding(4);
             this.btnUitloggen.Name = "btnUitloggen";
-            this.btnUitloggen.Size = new System.Drawing.Size(340, 60);
+            this.btnUitloggen.Size = new System.Drawing.Size(425, 75);
             this.btnUitloggen.TabIndex = 4;
             this.btnUitloggen.Text = "Uitloggen";
             this.btnUitloggen.UseVisualStyleBackColor = false;
@@ -85,17 +90,17 @@
             // 
             // Menu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(1388, 676);
+            this.ClientSize = new System.Drawing.Size(1173, 891);
             this.Controls.Add(this.btnUitloggen);
             this.Controls.Add(this.btnPM);
             this.Controls.Add(this.btnKassa);
             this.Controls.Add(this.lblMenu);
             this.DisplayHeader = false;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Menu";
-            this.Padding = new System.Windows.Forms.Padding(15, 19, 15, 16);
+            this.Padding = new System.Windows.Forms.Padding(19, 38, 19, 20);
             this.Text = "Menu";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.ResumeLayout(false);

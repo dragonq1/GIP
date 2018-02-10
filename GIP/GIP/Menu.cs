@@ -15,6 +15,7 @@ namespace GIP
     {
         //Vars
         StartForm startform = new StartForm();
+        ProductToevoegen PT = new ProductToevoegen();
         Business.Comm comm = new Business.Comm();
 
         public Menu()
@@ -35,6 +36,12 @@ namespace GIP
                 MessageBox.Show("Oeps! Er is iets fout gelopen. Foutcode: " + result, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
 
+        }
+
+        private void btnPM_Click(object sender, EventArgs e)
+        {
+            PT.Show();
+            this.Visible = false;
         }
     }
 }
