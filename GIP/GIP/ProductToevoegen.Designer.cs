@@ -43,7 +43,7 @@
             // 
             this.txtNaam.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtNaam.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNaam.Location = new System.Drawing.Point(479, 113);
+            this.txtNaam.Location = new System.Drawing.Point(129, 127);
             this.txtNaam.Name = "txtNaam";
             this.txtNaam.Size = new System.Drawing.Size(154, 30);
             this.txtNaam.TabIndex = 0;
@@ -53,7 +53,7 @@
             this.lblProductToevoegen.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblProductToevoegen.AutoSize = true;
             this.lblProductToevoegen.Font = new System.Drawing.Font("Segoe UI", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProductToevoegen.Location = new System.Drawing.Point(363, 30);
+            this.lblProductToevoegen.Location = new System.Drawing.Point(13, 44);
             this.lblProductToevoegen.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblProductToevoegen.Name = "lblProductToevoegen";
             this.lblProductToevoegen.Size = new System.Drawing.Size(386, 57);
@@ -65,7 +65,7 @@
             // 
             this.txtPrijs.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtPrijs.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPrijs.Location = new System.Drawing.Point(479, 149);
+            this.txtPrijs.Location = new System.Drawing.Point(129, 163);
             this.txtPrijs.Name = "txtPrijs";
             this.txtPrijs.Size = new System.Drawing.Size(154, 30);
             this.txtPrijs.TabIndex = 2;
@@ -74,7 +74,7 @@
             // 
             this.txtOmschrijving.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtOmschrijving.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtOmschrijving.Location = new System.Drawing.Point(479, 185);
+            this.txtOmschrijving.Location = new System.Drawing.Point(129, 199);
             this.txtOmschrijving.Name = "txtOmschrijving";
             this.txtOmschrijving.Size = new System.Drawing.Size(154, 30);
             this.txtOmschrijving.TabIndex = 3;
@@ -84,7 +84,7 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(413, 116);
+            this.label1.Location = new System.Drawing.Point(63, 130);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(56, 23);
             this.label1.TabIndex = 5;
@@ -95,7 +95,7 @@
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(428, 152);
+            this.label2.Location = new System.Drawing.Point(78, 166);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(41, 23);
             this.label2.TabIndex = 6;
@@ -106,7 +106,7 @@
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(360, 188);
+            this.label3.Location = new System.Drawing.Point(10, 202);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(109, 23);
             this.label3.TabIndex = 7;
@@ -117,7 +117,7 @@
             this.btnToevoegen.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnToevoegen.BackColor = System.Drawing.Color.Transparent;
             this.btnToevoegen.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnToevoegen.Location = new System.Drawing.Point(479, 240);
+            this.btnToevoegen.Location = new System.Drawing.Point(129, 254);
             this.btnToevoegen.Margin = new System.Windows.Forms.Padding(4);
             this.btnToevoegen.Name = "btnToevoegen";
             this.btnToevoegen.Size = new System.Drawing.Size(154, 34);
@@ -131,7 +131,7 @@
             this.btnAnnuleren.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnAnnuleren.BackColor = System.Drawing.Color.Transparent;
             this.btnAnnuleren.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAnnuleren.Location = new System.Drawing.Point(479, 282);
+            this.btnAnnuleren.Location = new System.Drawing.Point(129, 296);
             this.btnAnnuleren.Margin = new System.Windows.Forms.Padding(4);
             this.btnAnnuleren.Name = "btnAnnuleren";
             this.btnAnnuleren.Size = new System.Drawing.Size(154, 34);
@@ -144,7 +144,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1113, 563);
+            this.ClientSize = new System.Drawing.Size(412, 590);
             this.Controls.Add(this.btnAnnuleren);
             this.Controls.Add(this.btnToevoegen);
             this.Controls.Add(this.label3);
@@ -161,7 +161,6 @@
             this.Style = MetroFramework.MetroColorStyle.Red;
             this.Text = "ProductToevoegen";
             this.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.ResumeLayout(false);
             this.PerformLayout();
 

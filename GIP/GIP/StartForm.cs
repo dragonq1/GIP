@@ -17,18 +17,33 @@ namespace GIP
         //Vars
         QRCodeGen QRCodeGen = new QRCodeGen();
         Business.Comm comm = new Business.Comm();
+        Business.FileManager FM = new Business.FileManager();
 
 
         public StartForm()
         {
             InitializeComponent();
+            onStartup();
         }
         
-
+        private void onStartup()
+        {
+            String result = FM.onStartup();
+            if(result.Equals("success"))
+            {
+                //Niets
+            }
+            else
+            {
+                MessageBox.Show("Oeps! Er is iets fout gelopen!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txtNaam.Enabled = false;
+                txtWachtwoord.Enabled = false;
+            }
+        }
 
         private void StartForm_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         public Bitmap createQRCode(object sender, EventArgs e, string Tekst)
