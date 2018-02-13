@@ -14,7 +14,8 @@ namespace GIP
     public partial class ProductToevoegen : MetroForm
     {
         //Vars
-        Business.ProductManager PM = new Business.ProductManager();
+        Business.ProductManager PMB = new Business.ProductManager();
+        ProductManager PM = new ProductManager();
 
         public ProductToevoegen()
         {
@@ -32,12 +33,12 @@ namespace GIP
                 try
                 {
                     Double dblPrijs = Double.Parse(strPrijs);
-                    String strResult = PM.addProduct(strNaam, strOmSc, dblPrijs);
+                    String strResult = PMB.addProduct(strNaam, strOmSc, dblPrijs);
 
-                    if(strResult.Equals("success")) {
-
-                    }else
+                    if(strResult.Equals("success"))
                     {
+                        PM.loadProducts();
+                    }else                    {
                         MessageBox.Show("Fout: " + strResult, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     }
                 }
@@ -50,6 +51,11 @@ namespace GIP
             {
                 MessageBox.Show("Vul alle velden in!", "Fout", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
+        }
+
+        private void btnAnnuleren_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

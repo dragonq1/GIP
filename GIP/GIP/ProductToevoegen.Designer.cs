@@ -138,6 +138,7 @@
             this.btnAnnuleren.TabIndex = 9;
             this.btnAnnuleren.Text = "Annuleren";
             this.btnAnnuleren.UseVisualStyleBackColor = false;
+            this.btnAnnuleren.Click += new System.EventHandler(this.btnAnnuleren_Click);
             // 
             // ProductToevoegen
             // 

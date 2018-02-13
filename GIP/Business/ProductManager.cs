@@ -12,26 +12,34 @@ namespace Business
 
     public class ProductManager
     {
+
+        //Producten toevoegen
+
         public String addProduct(String naam, String omschrijving, double prijs)
         {
             try
             {
 
+                //Bestand ophalen
+                var JsonData = System.IO.File.ReadAllText(@"C:\Users\user\AppData\Roaming\NetPay\Products.json");
 
-                Product product = new Product
+                //Bestand uitlezen en omzetten naar lijst
+                var productsLijst = JsonConvert.DeserializeObject<List<Product>>(JsonData)
+                      ?? new List<Product>();
+
+                //Data toevoegen aan lijst
+                productsLijst.Add(new Product()
                 {
                     Naam = naam,
-                    Omschrijving = omschrijving,
-                    Prijs = prijs
-                };
+                    Prijs = prijs,
+                    Omschrijving = omschrijving
+                });
 
-                System.IO.File.WriteAllText(@"C:\Users\user\AppData\Roaming\Products.JSON", JsonConvert.SerializeObject(product));
+                //Lijst converteren en weer toevoegen aan bestand
 
-                using (System.IO.StreamWriter file = System.IO.File.CreateText(@"C:\Users\user\AppData\Roaming\Products.JSON"))
-                {
-                    JsonSerializer serializer = new JsonSerializer();
-                    serializer.Serialize(file, product);
-                }
+                JsonData = JsonConvert.SerializeObject(productsLijst);
+                System.IO.File.WriteAllText(@"C:\Users\user\AppData\Roaming\NetPay\Products.json", JsonData);
+
                 return "success";
 
             }catch(Exception e)
@@ -39,7 +47,23 @@ namespace Business
                 return e.ToString();
             }
         }
+
+
+        //Producten uitlezen
+        public List<Product> getAllProducts()
+        {
+            //Bestand ophalen
+            var JsonData = System.IO.File.ReadAllText(@"C:\Users\user\AppData\Roaming\NetPay\Products.json");
+
+            //Bestand uitlezen en omzetten naar lijst
+            var productsLijst = JsonConvert.DeserializeObject<List<Product>>(JsonData);
+            return productsLijst;
+        }
+
+
     }
+
+
 }
 
         

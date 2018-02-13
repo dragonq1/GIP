@@ -15,7 +15,7 @@ namespace GIP
     {
         //Vars
         StartForm startform = new StartForm();
-        ProductToevoegen PT = new ProductToevoegen();
+        ProductManager PM = new ProductManager();
         Business.Comm comm = new Business.Comm();
 
         public Menu()
@@ -40,7 +40,7 @@ namespace GIP
 
         private void btnPM_Click(object sender, EventArgs e)
         {
-            PT.Show();
+            PM.Show();
             this.Visible = false;
         }
     }

@@ -35,6 +35,7 @@ namespace GIP
             }
             else
             {
+                //Fout bij creeëren van files, inloggen blokkeren
                 MessageBox.Show("Oeps! Er is iets fout gelopen!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 txtNaam.Enabled = false;
                 txtWachtwoord.Enabled = false;
@@ -57,7 +58,7 @@ namespace GIP
 
         private void btnAfsluiten_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
 
         private void btnInloggen_Click(object sender, EventArgs e)
