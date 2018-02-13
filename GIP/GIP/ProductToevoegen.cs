@@ -38,7 +38,12 @@ namespace GIP
                     if(strResult.Equals("success"))
                     {
                         PM.loadProducts();
-                    }else                    {
+                    }
+                    else if(strResult.Equals("excists"))
+                    {
+                        MessageBox.Show("Product naam is al in gebruik!","ERROR", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                    else {
                         MessageBox.Show("Fout: " + strResult, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     }
                 }
@@ -55,6 +60,7 @@ namespace GIP
 
         private void btnAnnuleren_Click(object sender, EventArgs e)
         {
+            PM.loadProducts();
             this.Close();
         }
     }

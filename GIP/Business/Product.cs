@@ -12,7 +12,14 @@ namespace Business
         public String Omschrijving { get; set; }
         public double Prijs { get; set; }
 
-        public Double getPrijs()
+        public Product(String naam, String omschrijving, double prijs)
+        {
+            Naam = naam;
+            Omschrijving = omschrijving;
+            Prijs = prijs;
+        }
+
+        public double getPrijs()
         {
             return Prijs;
         }

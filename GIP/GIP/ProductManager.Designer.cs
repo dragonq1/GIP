@@ -30,12 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dgvProducts = new System.Windows.Forms.DataGridView();
-            this.Naam = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Prijs = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Omschrijving = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productManagerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnPToevoegen = new System.Windows.Forms.Button();
             this.btnMenu = new System.Windows.Forms.Button();
+            this.productManagerBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btnRefresh = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productManagerBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -46,10 +44,6 @@
             this.dgvProducts.AllowUserToDeleteRows = false;
             this.dgvProducts.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dgvProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProducts.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Naam,
-            this.Prijs,
-            this.Omschrijving});
             this.dgvProducts.Location = new System.Drawing.Point(23, 63);
             this.dgvProducts.Name = "dgvProducts";
             this.dgvProducts.ReadOnly = true;
@@ -57,28 +51,6 @@
             this.dgvProducts.Size = new System.Drawing.Size(950, 610);
             this.dgvProducts.TabIndex = 0;
             this.dgvProducts.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProducts_CellContentClick);
-            // 
-            // Naam
-            // 
-            this.Naam.HeaderText = "Naam";
-            this.Naam.Name = "Naam";
-            this.Naam.ReadOnly = true;
-            // 
-            // Prijs
-            // 
-            this.Prijs.HeaderText = "Prijs";
-            this.Prijs.Name = "Prijs";
-            this.Prijs.ReadOnly = true;
-            // 
-            // Omschrijving
-            // 
-            this.Omschrijving.HeaderText = "Omschrijving";
-            this.Omschrijving.Name = "Omschrijving";
-            this.Omschrijving.ReadOnly = true;
-            // 
-            // productManagerBindingSource
-            // 
-            this.productManagerBindingSource.DataSource = typeof(Business.ProductManager);
             // 
             // btnPToevoegen
             // 
@@ -97,7 +69,7 @@
             // 
             this.btnMenu.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnMenu.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMenu.Location = new System.Drawing.Point(980, 117);
+            this.btnMenu.Location = new System.Drawing.Point(980, 626);
             this.btnMenu.Margin = new System.Windows.Forms.Padding(4);
             this.btnMenu.Name = "btnMenu";
             this.btnMenu.Size = new System.Drawing.Size(238, 46);
@@ -106,11 +78,29 @@
             this.btnMenu.UseVisualStyleBackColor = true;
             this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
             // 
+            // productManagerBindingSource
+            // 
+            this.productManagerBindingSource.DataSource = typeof(Business.ProductManager);
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnRefresh.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRefresh.Location = new System.Drawing.Point(980, 117);
+            this.btnRefresh.Margin = new System.Windows.Forms.Padding(4);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(238, 46);
+            this.btnRefresh.TabIndex = 4;
+            this.btnRefresh.Text = "Opnieuw inladen";
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
             // ProductManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1230, 696);
+            this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.btnMenu);
             this.Controls.Add(this.btnPToevoegen);
             this.Controls.Add(this.dgvProducts);
@@ -129,9 +119,7 @@
         private System.Windows.Forms.DataGridView dgvProducts;
         private System.Windows.Forms.BindingSource productManagerBindingSource;
         private System.Windows.Forms.Button btnPToevoegen;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Naam;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Prijs;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Omschrijving;
         private System.Windows.Forms.Button btnMenu;
+        private System.Windows.Forms.Button btnRefresh;
     }
 }

@@ -39,16 +39,27 @@ namespace GIP
             {
                 int rowIndex = e.RowIndex;
                 String strIDNaam = dgvProducts.Rows[rowIndex].Cells["Naam"].Value.ToString();
+                String strOSV = dgvProducts.Rows[rowIndex].Cells["Omschrijving"].Value.ToString();
+                double prijs = Double.Parse(dgvProducts.Rows[rowIndex].Cells["Prijs"].Value.ToString());
 
                 //Aanpas button
-                if(e.ColumnIndex == 3)
+                if (e.ColumnIndex == 3)
                 {
                     MessageBox.Show(strIDNaam, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
                     //Verwijder button
                 }
-                else{
-
+                else
+                {
+                    String strResult = PMB.delProduct(strIDNaam);
+                    if(strResult.Equals("success")) {
+                        
+                        loadProducts();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Er ging iets fout! " + strResult, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
                 }
             }
         }
@@ -58,6 +69,14 @@ namespace GIP
         {
             try
             {
+                //DGV clearen en kolommen aanmaken
+                dgvProducts.Rows.Clear();
+                dgvProducts.Columns.Clear();
+
+                dgvProducts.Columns.Add("Naam", "Naam");
+                dgvProducts.Columns.Add("Prijs", "Prijs");
+                dgvProducts.Columns.Add("Omschrijving", "Omschrijving");
+
                 List<Business.Product> listProducts = PMB.getAllProducts();
                 int Aantal = listProducts.Count;
                 //Aanpas button
@@ -66,6 +85,7 @@ namespace GIP
                 aButton.Text = "Aanpassen";
                 aButton.HeaderText = "Aanpassen";
                 aButton.UseColumnTextForButtonValue = true;
+
                 //Verwijderd Button
                 DataGridViewButtonColumn dButton = new DataGridViewButtonColumn();
                 dButton.Name = "dButton";
@@ -77,7 +97,7 @@ namespace GIP
                 dgvProducts.Columns.Add(aButton);
                 dgvProducts.Columns.Add(dButton);
 
-                //int Teller = 0; 
+                //Data uit lijst lezen en in tabel zetten
                 foreach (Business.Product product in listProducts)
                 {
                     String strNaam = product.getNaam();
@@ -97,6 +117,11 @@ namespace GIP
             this.Visible = false;
             Menu menu = new Menu();
             menu.Show();
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            loadProducts();
         }
     }
 }
