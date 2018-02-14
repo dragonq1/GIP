@@ -13,6 +13,20 @@ namespace GIP
 {
     public partial class Menu : MetroForm
     {
+        //Nakijken of gebruiker applicatie sluit
+        private void Menu_FormClosing(object sender, FormClosingEventArgs e)
+        {
+
+            if (MessageBox.Show("Ben je zeker dat je applicatie wilt sluiten?", "Afsluiten", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                Environment.Exit(1);
+            }
+            else
+            {
+                e.Cancel = true;
+            }
+        }
+
         //Vars
         StartForm startform = new StartForm();
         ProductManager PM = new ProductManager();

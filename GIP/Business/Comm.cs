@@ -65,7 +65,7 @@ namespace Business
                 Array.Clear(userInfo, 0, userInfo.Length);
                 result = true;
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 result = false;
             }

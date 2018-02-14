@@ -32,9 +32,9 @@
             this.lblProductToevoegen = new System.Windows.Forms.Label();
             this.txtPrijs = new System.Windows.Forms.TextBox();
             this.txtOmschrijving = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblNaam = new System.Windows.Forms.Label();
+            this.lblPrijs = new System.Windows.Forms.Label();
+            this.lblOSV = new System.Windows.Forms.Label();
             this.btnToevoegen = new System.Windows.Forms.Button();
             this.btnAnnuleren = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -53,7 +53,7 @@
             this.lblProductToevoegen.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblProductToevoegen.AutoSize = true;
             this.lblProductToevoegen.Font = new System.Drawing.Font("Segoe UI", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProductToevoegen.Location = new System.Drawing.Point(13, 44);
+            this.lblProductToevoegen.Location = new System.Drawing.Point(13, 30);
             this.lblProductToevoegen.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblProductToevoegen.Name = "lblProductToevoegen";
             this.lblProductToevoegen.Size = new System.Drawing.Size(386, 57);
@@ -79,38 +79,38 @@
             this.txtOmschrijving.Size = new System.Drawing.Size(154, 30);
             this.txtOmschrijving.TabIndex = 3;
             // 
-            // label1
+            // lblNaam
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(63, 130);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(56, 23);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Naam";
+            this.lblNaam.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblNaam.AutoSize = true;
+            this.lblNaam.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNaam.Location = new System.Drawing.Point(63, 130);
+            this.lblNaam.Name = "lblNaam";
+            this.lblNaam.Size = new System.Drawing.Size(56, 23);
+            this.lblNaam.TabIndex = 5;
+            this.lblNaam.Text = "Naam";
             // 
-            // label2
+            // lblPrijs
             // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(78, 166);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 23);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Prijs";
+            this.lblPrijs.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblPrijs.AutoSize = true;
+            this.lblPrijs.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrijs.Location = new System.Drawing.Point(78, 166);
+            this.lblPrijs.Name = "lblPrijs";
+            this.lblPrijs.Size = new System.Drawing.Size(41, 23);
+            this.lblPrijs.TabIndex = 6;
+            this.lblPrijs.Text = "Prijs";
             // 
-            // label3
+            // lblOSV
             // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(10, 202);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(109, 23);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Omschrijving";
+            this.lblOSV.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblOSV.AutoSize = true;
+            this.lblOSV.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOSV.Location = new System.Drawing.Point(10, 202);
+            this.lblOSV.Name = "lblOSV";
+            this.lblOSV.Size = new System.Drawing.Size(109, 23);
+            this.lblOSV.TabIndex = 7;
+            this.lblOSV.Text = "Omschrijving";
             // 
             // btnToevoegen
             // 
@@ -148,9 +148,9 @@
             this.ClientSize = new System.Drawing.Size(412, 590);
             this.Controls.Add(this.btnAnnuleren);
             this.Controls.Add(this.btnToevoegen);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblOSV);
+            this.Controls.Add(this.lblPrijs);
+            this.Controls.Add(this.lblNaam);
             this.Controls.Add(this.txtOmschrijving);
             this.Controls.Add(this.txtPrijs);
             this.Controls.Add(this.lblProductToevoegen);
@@ -173,9 +173,9 @@
         private System.Windows.Forms.Label lblProductToevoegen;
         private System.Windows.Forms.TextBox txtPrijs;
         private System.Windows.Forms.TextBox txtOmschrijving;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblNaam;
+        private System.Windows.Forms.Label lblPrijs;
+        private System.Windows.Forms.Label lblOSV;
         private System.Windows.Forms.Button btnToevoegen;
         private System.Windows.Forms.Button btnAnnuleren;
     }

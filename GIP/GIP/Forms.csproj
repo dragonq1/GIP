@@ -72,6 +72,12 @@
     <Compile Include="Menu.Designer.cs">
       <DependentUpon>Menu.cs</DependentUpon>
     </Compile>
+    <Compile Include="ProductAanpassen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductAanpassen.Designer.cs">
+      <DependentUpon>ProductAanpassen.cs</DependentUpon>
+    </Compile>
     <Compile Include="ProductManager.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,6 +101,9 @@
     <Compile Include="QRCodeGen.cs" />
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductAanpassen.resx">
+      <DependentUpon>ProductAanpassen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProductManager.resx">
       <DependentUpon>ProductManager.cs</DependentUpon>

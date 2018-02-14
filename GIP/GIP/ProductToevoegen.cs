@@ -37,6 +37,7 @@ namespace GIP
 
                     if(strResult.Equals("success"))
                     {
+                        this.Close();
                         PM.loadProducts();
                     }
                     else if(strResult.Equals("excists"))

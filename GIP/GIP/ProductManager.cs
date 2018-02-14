@@ -13,6 +13,20 @@ namespace GIP
 {
     public partial class ProductManager : MetroForm
     {
+        //Nakijken of gebruiker applicatie sluit
+        private void ProductManager_FormClosing(object sender, FormClosingEventArgs e)
+        {
+
+            if (MessageBox.Show("Ben je zeker dat je applicatie wilt sluiten?", "Afsluiten", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) ==  DialogResult.Yes)
+            {
+                Environment.Exit(1);
+            }
+            else
+            {
+                e.Cancel = true;
+            }
+        }
+
         
         //Vars
         Business.ProductManager PMB = new Business.ProductManager();
@@ -45,9 +59,11 @@ namespace GIP
                 //Aanpas button
                 if (e.ColumnIndex == 3)
                 {
-                    MessageBox.Show(strIDNaam, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    ProductAanpassen PA = new ProductAanpassen(strIDNaam, strOSV, prijs);
 
-                    //Verwijder button
+                    PA.Show();
+
+                   //Verwijder button
                 }
                 else
                 {
@@ -76,6 +92,9 @@ namespace GIP
                 dgvProducts.Columns.Add("Naam", "Naam");
                 dgvProducts.Columns.Add("Prijs", "Prijs");
                 dgvProducts.Columns.Add("Omschrijving", "Omschrijving");
+                dgvProducts.Columns["Omschrijving"].Width = 269;
+                dgvProducts.Columns["Prijs"].Width = 50;
+                dgvProducts.Columns["Naam"].Width = 150;
 
                 List<Business.Product> listProducts = PMB.getAllProducts();
                 int Aantal = listProducts.Count;

@@ -101,8 +101,11 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Menu";
             this.Padding = new System.Windows.Forms.Padding(19, 38, 19, 20);
+            this.Style = MetroFramework.MetroColorStyle.Red;
             this.Text = "Menu";
+            this.Theme = MetroFramework.MetroThemeStyle.Light;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Menu_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
