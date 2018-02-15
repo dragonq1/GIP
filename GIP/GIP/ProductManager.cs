@@ -67,15 +67,21 @@ namespace GIP
                 }
                 else
                 {
-                    String strResult = PMB.delProduct(strIDNaam);
-                    if (strResult.Equals("success"))
+                    if(MessageBox.Show("Ben je zeker dat je dit product wilt verwijderen", "Waarschwuing!", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
                     {
+                        String strResult = PMB.delProduct(strIDNaam);
+                        if (strResult.Equals("success"))
+                        {
 
-                        loadProducts();
-                    }
-                    else
+                            loadProducts();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Er ging iets fout! " + strResult, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        }
+                    }else
                     {
-                        MessageBox.Show("Er ging iets fout! " + strResult, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        //niets
                     }
                 }
             }

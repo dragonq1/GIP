@@ -20,7 +20,7 @@ namespace GIP
 
             if (MessageBox.Show("Ben je zeker dat je applicatie wilt sluiten?", "Afsluiten", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
-                Environment.Exit(0);
+                Environment.Exit(1);
             }
             else
             {

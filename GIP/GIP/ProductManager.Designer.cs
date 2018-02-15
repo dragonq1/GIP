@@ -57,13 +57,13 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvProducts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProducts.Location = new System.Drawing.Point(13, 54);
+            this.dgvProducts.Location = new System.Drawing.Point(53, 54);
             this.dgvProducts.Name = "dgvProducts";
             this.dgvProducts.ReadOnly = true;
             this.dgvProducts.RowHeadersVisible = false;
             this.dgvProducts.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvProducts.RowTemplate.Height = 30;
-            this.dgvProducts.Size = new System.Drawing.Size(960, 619);
+            this.dgvProducts.Size = new System.Drawing.Size(983, 619);
             this.dgvProducts.TabIndex = 0;
             this.dgvProducts.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProducts_CellContentClick);
             // 
@@ -71,7 +71,7 @@
             // 
             this.btnPToevoegen.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnPToevoegen.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPToevoegen.Location = new System.Drawing.Point(980, 63);
+            this.btnPToevoegen.Location = new System.Drawing.Point(1045, 54);
             this.btnPToevoegen.Margin = new System.Windows.Forms.Padding(4);
             this.btnPToevoegen.Name = "btnPToevoegen";
             this.btnPToevoegen.Size = new System.Drawing.Size(238, 46);
@@ -84,7 +84,7 @@
             // 
             this.btnMenu.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnMenu.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMenu.Location = new System.Drawing.Point(980, 626);
+            this.btnMenu.Location = new System.Drawing.Point(1045, 627);
             this.btnMenu.Margin = new System.Windows.Forms.Padding(4);
             this.btnMenu.Name = "btnMenu";
             this.btnMenu.Size = new System.Drawing.Size(238, 46);
@@ -97,7 +97,7 @@
             // 
             this.btnRefresh.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnRefresh.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRefresh.Location = new System.Drawing.Point(980, 117);
+            this.btnRefresh.Location = new System.Drawing.Point(1045, 108);
             this.btnRefresh.Margin = new System.Windows.Forms.Padding(4);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(238, 46);
@@ -114,7 +114,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1230, 696);
+            this.ClientSize = new System.Drawing.Size(1311, 696);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.btnMenu);
             this.Controls.Add(this.btnPToevoegen);
