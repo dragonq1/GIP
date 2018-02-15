@@ -34,8 +34,8 @@
             this.dgvProducts = new System.Windows.Forms.DataGridView();
             this.btnPToevoegen = new System.Windows.Forms.Button();
             this.btnMenu = new System.Windows.Forms.Button();
-            this.productManagerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnRefresh = new System.Windows.Forms.Button();
+            this.productManagerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productManagerBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -44,6 +44,7 @@
             // 
             this.dgvProducts.AllowUserToAddRows = false;
             this.dgvProducts.AllowUserToDeleteRows = false;
+            this.dgvProducts.AllowUserToResizeColumns = false;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvProducts.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvProducts.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -56,12 +57,13 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvProducts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProducts.Location = new System.Drawing.Point(23, 63);
+            this.dgvProducts.Location = new System.Drawing.Point(13, 54);
             this.dgvProducts.Name = "dgvProducts";
             this.dgvProducts.ReadOnly = true;
+            this.dgvProducts.RowHeadersVisible = false;
             this.dgvProducts.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvProducts.RowTemplate.Height = 30;
-            this.dgvProducts.Size = new System.Drawing.Size(950, 610);
+            this.dgvProducts.Size = new System.Drawing.Size(960, 619);
             this.dgvProducts.TabIndex = 0;
             this.dgvProducts.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProducts_CellContentClick);
             // 
@@ -91,10 +93,6 @@
             this.btnMenu.UseVisualStyleBackColor = true;
             this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
             // 
-            // productManagerBindingSource
-            // 
-            this.productManagerBindingSource.DataSource = typeof(Business.ProductManager);
-            // 
             // btnRefresh
             // 
             this.btnRefresh.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -107,6 +105,10 @@
             this.btnRefresh.Text = "Opnieuw inladen";
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
+            // productManagerBindingSource
+            // 
+            this.productManagerBindingSource.DataSource = typeof(Business.ProductManager);
             // 
             // ProductManager
             // 

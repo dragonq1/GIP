@@ -57,5 +57,12 @@ namespace GIP
             PM.Show();
             this.Visible = false;
         }
+
+        private void btnKassa_Click(object sender, EventArgs e)
+        {
+            Kassa kassa = new Kassa();
+            kassa.Show();
+            this.Visible = false;
+        }
     }
 }

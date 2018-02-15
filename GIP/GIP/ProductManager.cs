@@ -17,7 +17,7 @@ namespace GIP
         private void ProductManager_FormClosing(object sender, FormClosingEventArgs e)
         {
 
-            if (MessageBox.Show("Ben je zeker dat je applicatie wilt sluiten?", "Afsluiten", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) ==  DialogResult.Yes)
+            if (MessageBox.Show("Ben je zeker dat je applicatie wilt sluiten?", "Afsluiten", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
                 Environment.Exit(1);
             }
@@ -27,10 +27,10 @@ namespace GIP
             }
         }
 
-        
+
         //Vars
         Business.ProductManager PMB = new Business.ProductManager();
-        
+
 
         public ProductManager()
         {
@@ -63,13 +63,14 @@ namespace GIP
 
                     PA.Show();
 
-                   //Verwijder button
+                    //Verwijder button
                 }
                 else
                 {
                     String strResult = PMB.delProduct(strIDNaam);
-                    if(strResult.Equals("success")) {
-                        
+                    if (strResult.Equals("success"))
+                    {
+
                         loadProducts();
                     }
                     else
@@ -92,7 +93,7 @@ namespace GIP
                 dgvProducts.Columns.Add("Naam", "Naam");
                 dgvProducts.Columns.Add("Prijs", "Prijs");
                 dgvProducts.Columns.Add("Omschrijving", "Omschrijving");
-                dgvProducts.Columns["Omschrijving"].Width = 269;
+                dgvProducts.Columns["Omschrijving"].Width = 317;
                 dgvProducts.Columns["Prijs"].Width = 50;
                 dgvProducts.Columns["Naam"].Width = 150;
 
@@ -123,13 +124,14 @@ namespace GIP
                     String strOm = product.getOmschrijving();
                     String strPrijs = product.getPrijs().ToString();
                     dgvProducts.Rows.Add(strNaam, strPrijs, strOm);
-                }            
-            }catch(Exception e)
+                }
+            }
+            catch (Exception e)
             {
                 MessageBox.Show("Fout: " + e.ToString(), "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
-       
+
 
         private void btnMenu_Click(object sender, EventArgs e)
         {

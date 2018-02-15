@@ -59,6 +59,7 @@
             this.btnKassa.TabIndex = 2;
             this.btnKassa.Text = "Kassa";
             this.btnKassa.UseVisualStyleBackColor = false;
+            this.btnKassa.Click += new System.EventHandler(this.btnKassa_Click);
             // 
             // btnPM
             // 
