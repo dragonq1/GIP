@@ -39,11 +39,13 @@ namespace GIP
             InitializeComponent();
             onStartup();
         }
-        
+
+
+
         private void onStartup()
         {
             String result = FM.onStartup();
-            if(result.Equals("success"))
+            if (result.Equals("success"))
             {
                 //Niets
             }
@@ -58,7 +60,7 @@ namespace GIP
 
         private void StartForm_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         public Bitmap createQRCode(object sender, EventArgs e, string Tekst)
@@ -77,7 +79,7 @@ namespace GIP
 
         private void btnInloggen_Click(object sender, EventArgs e)
         {
-            if(!(txtNaam.Text.Equals("") || txtWachtwoord.Text.Equals("")))
+            if (!(txtNaam.Text.Equals("") || txtWachtwoord.Text.Equals("")))
             {
                 String result = comm.Login(txtNaam.Text, txtWachtwoord.Text);
                 if (result == "true")
@@ -85,7 +87,8 @@ namespace GIP
                     Menu menu = new Menu();
                     menu.Show();
                     this.Visible = false;
-                }else if(result == "false")
+                }
+                else if (result == "false")
                 {
                     lblLogin.Visible = true;
 
@@ -96,7 +99,7 @@ namespace GIP
                 }
 
             }
-            else               
+            else
             {
                 //Niets
             }

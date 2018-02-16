@@ -15,6 +15,7 @@ namespace GIP
     {
         Business.ProductManager PMB = new Business.ProductManager();
         Business.FactuurItem FIE = new Business.FactuurItem();
+        BetalingInfo BI = new BetalingInfo();
 
         //Factuur lijst
         public List<Business.FactuurItem> FactuurList = new List<Business.FactuurItem>();
@@ -23,6 +24,51 @@ namespace GIP
         {
             InitializeComponent();
             loadProducts();
+            openInfoScreen();
+            BI.clearInfo();
+        }
+
+        //Info scherm openen
+        public void openInfoScreen()
+        {
+            if (Screen.AllScreens.Length > 1)
+            {
+
+                Form BIT = Application.OpenForms["BetalingInfo"];
+
+                if (BIT != null)
+                {
+                    //niets
+                }
+                else
+                {
+                    Screen screen = GetSecondaryScreen();
+
+                    BI.Location = screen.WorkingArea.Location;
+                    
+                    BI.Size = new Size(screen.WorkingArea.Width, screen.WorkingArea.Height);
+
+                    BI.Show();
+                }
+            }
+        }
+
+        public Screen GetSecondaryScreen()
+        {
+            if (Screen.AllScreens.Length == 1)
+            {
+                return null;
+            }
+
+            foreach (Screen screen in Screen.AllScreens)
+            {
+                if (screen.Primary == false)
+                {
+                    return screen;
+                }
+            }
+
+            return null;
         }
 
         //Nakijken of gebruiker applicatie sluit
@@ -39,7 +85,8 @@ namespace GIP
             }
         }
 
-        //Button op factuur linken
+
+        //Buttons op factuur linken
         private void dvgFactuur_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             var senderGrid = (DataGridView)sender;
@@ -122,6 +169,7 @@ namespace GIP
             }
         }
 
+        //Prodcuten op factuur inladen of refreshen
         public void loadFactuur()
         {
             dvgFactuur.Rows.Clear();
@@ -132,10 +180,13 @@ namespace GIP
                 {
                     dvgFactuur.Rows.Add(FI.PNaam, FI.PrijsPS.ToString(), FI.Aantal.ToString(), FI.PrijsT.ToString());
                 }
+
+                BI.loadInfo(FactuurList);
                 getTPrijs();
             }
             else
             {
+                getTPrijs();
                 //Lijst is leeg => niets
             }
 
@@ -282,14 +333,23 @@ namespace GIP
             {
                 dblTPrijs += FI.PrijsT;
             }
-            lblTPrijs.Text = "Totaal prijs: " + dblTPrijs.ToString() + " euro";
+                lblTPrijs.Text = "Totaal prijs: " + dblTPrijs.ToString() + " euro";
+
         }
 
         private void btnMenu_Click(object sender, EventArgs e)
         {
+            BI.Close();
             this.Visible = false;
             Menu menu = new Menu();
             menu.Show();
+        }
+
+        private void btnNieuw_Click(object sender, EventArgs e)
+        {
+            FactuurList.Clear();
+            loadFactuur();
+            BI.clearInfo();
         }
     }
 }
