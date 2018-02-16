@@ -14,6 +14,10 @@ namespace GIP
     public partial class Kassa : MetroForm
     {
         Business.ProductManager PMB = new Business.ProductManager();
+        Business.FactuurItem FIE = new Business.FactuurItem();
+
+        //Factuur lijst
+        public List<Business.FactuurItem> FactuurList = new List<Business.FactuurItem>();
 
         public Kassa()
         {
@@ -35,8 +39,145 @@ namespace GIP
             }
         }
 
+        //Button op factuur linken
+        private void dvgFactuur_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var senderGrid = (DataGridView)sender;
+
+            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
+                e.RowIndex >= 0)
+            {
+                int rowIndex = e.RowIndex;
+                String strPNaam = dvgFactuur.Rows[rowIndex].Cells[0].Value.ToString();
+                var FI = FactuurList.Single(F => F.PNaam == strPNaam);
+
+                //+1
+                if (e.ColumnIndex == 4)
+                {
+                    FI.addOne();
+                    loadFactuur();
+                }
+
+                //-1
+                else if (e.ColumnIndex == 5)
+                {
+                    if (FI.Aantal > 1)
+                    {
+                        FI.minOne();
+                        loadFactuur();
+                    }
+                    else
+                    {
+                        //Niets -> kan niet onder 0
+                    }
+                }
+
+                //Verwijderen
+                else
+                {
+                    FactuurList.Remove(FI);
+                    loadFactuur();
+                }
+
+            }
+        }
+
+        //Producten toevoegen aan factuur
+        private void dvgProducten_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var senderGrid = (DataGridView)sender;
+
+            if (e.RowIndex >= 0)
+            {
+                int intRow = e.RowIndex;
+                int intKolom = e.ColumnIndex;
+
+                //Cell tag ophalen
+                String strPNaam = dgvProducten.Rows[intRow].Cells[intKolom].Tag.ToString();
+
+                //Lijst ophalen
+                List<Business.Product> productsLijst = PMB.getAllProducts();
+
+                //Product info ophalen
+                var product = productsLijst.Single(Product => Product.Naam == strPNaam);
+                String strPrijs = product.getPrijs().ToString();
+
+
+
+                int checkIndex = FactuurList.FindIndex(F => F.PNaam == strPNaam);
+
+                if (checkIndex >= 0)
+                {
+                    var FI = FactuurList.Single(F => F.PNaam == strPNaam);
+                    FI.addOne();
+                }
+                else
+                {
+                    Business.FactuurItem FI = new Business.FactuurItem(strPNaam, double.Parse(strPrijs), 1, double.Parse(strPrijs));
+                    FactuurList.Add(FI);
+                }
+
+                loadFactuur();
+
+            }
+        }
+
+        public void loadFactuur()
+        {
+            dvgFactuur.Rows.Clear();
+
+            if (FactuurList.Any())
+            {
+                foreach (Business.FactuurItem FI in FactuurList)
+                {
+                    dvgFactuur.Rows.Add(FI.PNaam, FI.PrijsPS.ToString(), FI.Aantal.ToString(), FI.PrijsT.ToString());
+                }
+                getTPrijs();
+            }
+            else
+            {
+                //Lijst is leeg => niets
+            }
+
+        }
+
         public void loadProducts()
         {
+
+            //+ en - button aanmaken
+            DataGridViewButtonColumn minBtn = new DataGridViewButtonColumn()
+            {
+                Name = "minBtn",
+                Text = "-",
+                HeaderText = "-1",
+                UseColumnTextForButtonValue = true
+            };
+
+            DataGridViewButtonColumn plusBtn = new DataGridViewButtonColumn()
+            {
+                Name = "plusBtn",
+                Text = "+",
+                HeaderText = "+1",
+                UseColumnTextForButtonValue = true
+
+            };
+
+            DataGridViewButtonColumn vBtn = new DataGridViewButtonColumn()
+            {
+                Name = "vBtn",
+                Text = "x",
+                HeaderText = "X",
+                UseColumnTextForButtonValue = true
+
+            };
+
+            dvgFactuur.Columns.Add(plusBtn);
+            dvgFactuur.Columns.Add(minBtn);
+            dvgFactuur.Columns.Add(vBtn);
+
+            dvgFactuur.Columns["minBtn"].Width = 70;
+            dvgFactuur.Columns["plusBtn"].Width = 70;
+            dvgFactuur.Columns["vBtn"].Width = 70;
 
             //Kolommen
             int intWidth = 150;
@@ -53,6 +194,7 @@ namespace GIP
             dgvProducten.Columns["Kolom4"].Width = intWidth;
 
             dgvProducten.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            dgvProducten.ScrollBars = ScrollBars.Vertical;
 
 
 
@@ -130,6 +272,17 @@ namespace GIP
 
 
             }
+        }
+
+        public void getTPrijs()
+        {
+            double dblTPrijs = 0;
+
+            foreach(Business.FactuurItem FI in FactuurList)
+            {
+                dblTPrijs += FI.PrijsT;
+            }
+            lblTPrijs.Text = "Totaal prijs: " + dblTPrijs.ToString() + " euro";
         }
 
         private void btnMenu_Click(object sender, EventArgs e)

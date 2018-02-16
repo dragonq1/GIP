@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Comm.cs" />
+    <Compile Include="FactuurItem.cs" />
     <Compile Include="FileManager.cs" />
     <Compile Include="Product.cs" />
     <Compile Include="ProductManager.cs" />

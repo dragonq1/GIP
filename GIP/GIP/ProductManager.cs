@@ -44,7 +44,7 @@ namespace GIP
             PT.Show();
         }
 
-        private void dgvProducts_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvProducten_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             var senderGrid = (DataGridView)sender;
 
