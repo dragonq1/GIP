@@ -107,5 +107,43 @@ namespace Business
 
             return result;
         }
+
+        //Betaling checken
+        public Boolean checkBetaling(String qrCode)
+        {
+            //Vars
+            Boolean result = false;
+
+            MySqlConnection conn = new MySqlConnection(strConString);
+            MySqlCommand cmd = new MySqlCommand("SELECT idCode FROM Transacties WHERE idCode = @idCode AND Uitgevoerd = 1;", conn);
+            cmd.Parameters.AddWithValue("idCode", qrCode);
+
+            try
+            {
+                conn.Open();
+
+                MySqlDataReader datareader = cmd.ExecuteReader();
+
+
+                while (datareader.Read())
+                {
+                    if (!(datareader.IsDBNull(0)))
+                    {
+                        String strQRCode = datareader["idCode"].ToString();
+                        result = true;
+                    }
+                    else
+                    {
+                        result = false;
+                    }
+                }
+                conn.Close();
+            }
+            catch (Exception)
+            {
+                result = false;
+            }
+            return result;
+        }
     }
 }

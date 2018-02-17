@@ -15,13 +15,14 @@ namespace GIP
     {
         Business.ProductManager PMB = new Business.ProductManager();
         Business.FactuurItem FIE = new Business.FactuurItem();
-        BetalingInfo BI = new BetalingInfo();
+        BetalingInfo BI;
 
         //Factuur lijst
         public List<Business.FactuurItem> FactuurList = new List<Business.FactuurItem>();
 
         public Kassa()
         {
+            BI = new BetalingInfo(this);
             InitializeComponent();
             loadProducts();
             openInfoScreen();
@@ -149,7 +150,7 @@ namespace GIP
                 //Lijst ophalen
                 List<Business.Product> productsLijst = PMB.getAllProducts();
 
-                //Product info ophalen
+                //Producten info ophalen
                 var product = productsLijst.Single(Product => Product.Naam == strPNaam);
                 String strPrijs = product.getPrijs().ToString();
 
@@ -359,7 +360,8 @@ namespace GIP
 
         private void btnBetalen_Click(object sender, EventArgs e)
         {
-            BI.startBetaling();
+           BI.startBetaling();
+
         }
 
         private void btnTest_Click(object sender, EventArgs e)

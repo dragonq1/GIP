@@ -28,15 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblWelkom = new System.Windows.Forms.Label();
             this.dgvProducten = new System.Windows.Forms.DataGridView();
+            this.lblTPrijs = new System.Windows.Forms.Label();
+            this.pbQR = new System.Windows.Forms.PictureBox();
+            this.lblStatus = new System.Windows.Forms.Label();
+            this.timerBetaling = new System.Windows.Forms.Timer(this.components);
             this.Product = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Aantal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Prijs = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lblTPrijs = new System.Windows.Forms.Label();
-            this.pbQR = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducten)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbQR)).BeginInit();
             this.SuspendLayout();
@@ -58,8 +64,8 @@
             this.dgvProducten.AllowUserToDeleteRows = false;
             this.dgvProducten.AllowUserToResizeColumns = false;
             this.dgvProducten.AllowUserToResizeRows = false;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvProducten.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvProducten.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvProducten.BackgroundColor = System.Drawing.Color.White;
             this.dgvProducten.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvProducten.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -75,8 +81,8 @@
             this.dgvProducten.MultiSelect = false;
             this.dgvProducten.Name = "dgvProducten";
             this.dgvProducten.RowHeadersVisible = false;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvProducten.RowsDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvProducten.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvProducten.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvProducten.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvProducten.RowTemplate.DividerHeight = 2;
@@ -85,28 +91,6 @@
             this.dgvProducten.Size = new System.Drawing.Size(518, 733);
             this.dgvProducten.TabIndex = 1;
             this.dgvProducten.Visible = false;
-            // 
-            // Product
-            // 
-            this.Product.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Product.DividerWidth = 1;
-            this.Product.HeaderText = "Product";
-            this.Product.MinimumWidth = 300;
-            this.Product.Name = "Product";
-            this.Product.ReadOnly = true;
-            // 
-            // Aantal
-            // 
-            this.Aantal.DividerWidth = 1;
-            this.Aantal.HeaderText = "Aantal";
-            this.Aantal.Name = "Aantal";
-            this.Aantal.ReadOnly = true;
-            // 
-            // Prijs
-            // 
-            this.Prijs.HeaderText = "Prijs";
-            this.Prijs.Name = "Prijs";
-            this.Prijs.ReadOnly = true;
             // 
             // lblTPrijs
             // 
@@ -123,6 +107,7 @@
             // 
             // pbQR
             // 
+            this.pbQR.BackColor = System.Drawing.Color.Transparent;
             this.pbQR.Location = new System.Drawing.Point(567, 70);
             this.pbQR.Name = "pbQR";
             this.pbQR.Size = new System.Drawing.Size(703, 703);
@@ -131,11 +116,59 @@
             this.pbQR.TabStop = false;
             this.pbQR.Visible = false;
             // 
+            // lblStatus
+            // 
+            this.lblStatus.AutoSize = true;
+            this.lblStatus.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStatus.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.lblStatus.Location = new System.Drawing.Point(653, 776);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(713, 81);
+            this.lblStatus.TabIndex = 9;
+            this.lblStatus.Text = "Wachten op bevestiging...";
+            this.lblStatus.Visible = false;
+            // 
+            // timerBetaling
+            // 
+            this.timerBetaling.Interval = 500;
+            this.timerBetaling.Tick += new System.EventHandler(this.timerBetaling_tick);
+            // 
+            // Product
+            // 
+            this.Product.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Product.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Product.DividerWidth = 1;
+            this.Product.HeaderText = "Product";
+            this.Product.MinimumWidth = 300;
+            this.Product.Name = "Product";
+            this.Product.ReadOnly = true;
+            // 
+            // Aantal
+            // 
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Aantal.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Aantal.DividerWidth = 1;
+            this.Aantal.HeaderText = "Aantal";
+            this.Aantal.Name = "Aantal";
+            this.Aantal.ReadOnly = true;
+            // 
+            // Prijs
+            // 
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.Format = "C2";
+            dataGridViewCellStyle4.NullValue = "0";
+            this.Prijs.DefaultCellStyle = dataGridViewCellStyle4;
+            this.Prijs.HeaderText = "Prijs";
+            this.Prijs.Name = "Prijs";
+            this.Prijs.ReadOnly = true;
+            // 
             // BetalingInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 28F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1557, 1017);
+            this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.pbQR);
             this.Controls.Add(this.lblTPrijs);
             this.Controls.Add(this.dgvProducten);
@@ -159,10 +192,12 @@
 
         private System.Windows.Forms.Label lblWelkom;
         private System.Windows.Forms.DataGridView dgvProducten;
+        private System.Windows.Forms.Label lblTPrijs;
+        private System.Windows.Forms.PictureBox pbQR;
+        private System.Windows.Forms.Label lblStatus;
+        private System.Windows.Forms.Timer timerBetaling;
         private System.Windows.Forms.DataGridViewTextBoxColumn Product;
         private System.Windows.Forms.DataGridViewTextBoxColumn Aantal;
         private System.Windows.Forms.DataGridViewTextBoxColumn Prijs;
-        private System.Windows.Forms.Label lblTPrijs;
-        private System.Windows.Forms.PictureBox pbQR;
     }
 }

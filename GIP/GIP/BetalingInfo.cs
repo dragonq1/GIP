@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using QRCoder;
 using MetroFramework.Forms;
+using System.Timers;
 
 namespace GIP
 {
@@ -17,11 +18,15 @@ namespace GIP
         //Vars
         Business.Comm comm = new Business.Comm();
         public double TPrijs { get; set; }
+        public String QRCode { get; set; }
 
-        public BetalingInfo()
+        public BetalingInfo(Kassa kassa)
         {
             InitializeComponent();
+            _parent = kassa;
         }
+
+        private Kassa _parent = null;
 
         public void loadInfo(List<Business.FactuurItem> FactuurList)
         {
@@ -68,16 +73,20 @@ namespace GIP
 
         public void clearInfo()
         {
+            timerBetaling.Stop();
             dgvProducten.Visible = false;
             lblTPrijs.Visible = false;
             pbQR.Image = null;
             pbQR.Visible = false;
+            lblStatus.Visible = false;
             lblWelkom.Visible = true;
+
             dgvProducten.Rows.Clear();
         }
 
         public void startBetaling()
         {
+
             //Vars
             Business.Gebruiker gebruiker = Business.GlobalInfo.Gebruiker;
             //Code aanmaken
@@ -90,12 +99,60 @@ namespace GIP
             if (resultB.Equals("success"))
             {
                 Boolean resultQR = createQRCode(qrCode);
+                if (resultQR)
+                {
+                    QRCode = qrCode;
+                    lblStatus.Visible = true;
+                    timerBetaling.Start();
+
+                }
+                else
+                {
+                    MessageBox.Show("Fout bij aanmaken van QR-Code", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
             }
             else
             {
                 MessageBox.Show("Fout: " + resultB, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
+
+        //Teller voor lblStatus
+        int intTeller = 1;
+
+        //Timer voor nakijken betaling
+        private void timerBetaling_tick(Object sender, EventArgs e)
+        {
+            Boolean resultBetaling = comm.checkBetaling(QRCode);
+            if (resultBetaling)
+            {
+                timerBetaling.Stop();
+                clearInfo();
+                _parent.FactuurList.Clear();
+                _parent.loadFactuur();
+                MessageBox.Show("Transactie geslaagd!", "Transactie", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                switch (intTeller)
+                {
+                    case 1:
+                        lblStatus.Text = "Wachten op bevestiging.";
+                        intTeller++;
+                        break;
+                    case 2:
+                        lblStatus.Text = "Wachten op bevestiging..";
+                        intTeller++;
+                        break;
+                    case 3:
+                        lblStatus.Text = "Wachten op bevestiging...";
+                        intTeller = 1;
+                        break;
+                }
+
+            }
+        }
+
 
         public Boolean createQRCode(string Tekst)
         {
