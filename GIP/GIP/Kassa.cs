@@ -38,18 +38,22 @@ namespace GIP
 
                 if (BIT != null)
                 {
-                    //niets
+                    BI.Show();
                 }
                 else
                 {
                     Screen screen = GetSecondaryScreen();
 
                     BI.Location = screen.WorkingArea.Location;
-                    
+
                     BI.Size = new Size(screen.WorkingArea.Width, screen.WorkingArea.Height);
 
                     BI.Show();
                 }
+            }
+            else
+            {
+                BI.Show();
             }
         }
 
@@ -330,11 +334,11 @@ namespace GIP
         {
             double dblTPrijs = 0;
 
-            foreach(Business.FactuurItem FI in FactuurList)
+            foreach (Business.FactuurItem FI in FactuurList)
             {
                 dblTPrijs += FI.PrijsT;
             }
-                lblTPrijs.Text = "Totaal prijs: " + dblTPrijs.ToString() + " euro";
+            lblTPrijs.Text = "Totaal prijs: " + dblTPrijs.ToString() + " euro";
 
         }
 
