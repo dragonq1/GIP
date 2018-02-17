@@ -178,7 +178,7 @@ namespace GIP
             {
                 foreach (Business.FactuurItem FI in FactuurList)
                 {
-                    dvgFactuur.Rows.Add(FI.PNaam, FI.PrijsPS.ToString(), FI.Aantal.ToString(), FI.PrijsT.ToString());
+                    dvgFactuur.Rows.Add(FI.PNaam, "€ " + FI.PrijsPS.ToString(), FI.Aantal.ToString(), "€ " + FI.PrijsT.ToString());
                 }
 
                 BI.loadInfo(FactuurList);
@@ -186,6 +186,7 @@ namespace GIP
             }
             else
             {
+                BI.loadInfo(FactuurList);
                 getTPrijs();
                 //Lijst is leeg => niets
             }
@@ -350,6 +351,16 @@ namespace GIP
             FactuurList.Clear();
             loadFactuur();
             BI.clearInfo();
+        }
+
+        private void btnBetalen_Click(object sender, EventArgs e)
+        {
+            BI.startBetaling();
+        }
+
+        private void btnTest_Click(object sender, EventArgs e)
+        {
+            BI.createQRCode("TestCode");
         }
     }
 }

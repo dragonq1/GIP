@@ -110,7 +110,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QRCodeGen.cs" />
     <EmbeddedResource Include="BetalingInfo.resx">
       <DependentUpon>BetalingInfo.cs</DependentUpon>
     </EmbeddedResource>

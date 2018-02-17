@@ -29,7 +29,6 @@ namespace GIP
         }
 
         //Vars
-        QRCodeGen QRCodeGen = new QRCodeGen();
         Business.Comm comm = new Business.Comm();
         Business.FileManager FM = new Business.FileManager();
 
@@ -61,15 +60,6 @@ namespace GIP
         private void StartForm_Load(object sender, EventArgs e)
         {
 
-        }
-
-        public Bitmap createQRCode(object sender, EventArgs e, string Tekst)
-        {
-            String tekst = Tekst;
-            QRCodeGenerator qrGenerator = new QRCodeGenerator();
-            QRCodeData qrCodeData = qrGenerator.CreateQrCode(tekst, QRCodeGenerator.ECCLevel.Q);
-            QRCode qrCode = new QRCode(qrCodeData);
-            return qrCode.GetGraphic(15);
         }
 
         private void btnAfsluiten_Click(object sender, EventArgs e)

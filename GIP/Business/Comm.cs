@@ -7,20 +7,21 @@ using MySql.Data.MySqlClient;
 
 namespace Business
 {
+
     public class Comm
     {
         //Vars
-        public String[] userInfo = new String[4];
         public String strConString = "server=37.34.58.100;user id=dragv_GIP;persistsecurityinfo=True;database=dragv_GIP;password=Julia.2000";
+     
 
         public String Login(String gebruikersnaam, String wachtwoord)
         {
             //Vars
             String result = "false";
             MySqlConnection conn = new MySqlConnection(strConString);
-            MySqlCommand cmd = new MySqlCommand("SELECT Gebruikersnaam, Voornaam, Achternaam, Saldo FROM Gebruikers WHERE Gebruikersnaam = @Gebruikersnaam AND Wachtwoord = @Wachtwoord;", conn);
-            cmd.Parameters.AddWithValue("@Gebruikersnaam", gebruikersnaam);
-            cmd.Parameters.AddWithValue("@Wachtwoord", wachtwoord);
+            MySqlCommand cmd = new MySqlCommand("SELECT Gebruikersnaam, Voornaam, Achternaam, Saldo, idGebruiker FROM Gebruikers WHERE Gebruikersnaam = @Gebruikersnaam AND Wachtwoord = @Wachtwoord;", conn);
+            cmd.Parameters.AddWithValue("Gebruikersnaam", gebruikersnaam);
+            cmd.Parameters.AddWithValue("Wachtwoord", wachtwoord);
 
             try
             {
@@ -33,22 +34,20 @@ namespace Business
                 {
                     if (!(datareader.IsDBNull(0)))
                     {
-                        userInfo[0] = datareader["Gebruikersnaam"].ToString();
-                        userInfo[1] = datareader["Voornaam"].ToString();
-                        userInfo[2] = datareader["Achternaam"].ToString();
-                        userInfo[3] = datareader["Saldo"].ToString();
+                        String strGN = datareader["Gebruikersnaam"].ToString();
+                        String strVoornaam = datareader["Voornaam"].ToString();
+                        String strAchternaam = datareader["Achternaam"].ToString();
+                        double dblSaldo = double.Parse(datareader["Saldo"].ToString());
+                        int intID = Convert.ToInt16(datareader["idGebruiker"]);
+                        GlobalInfo.Gebruiker = new Gebruiker(intID);                     
                         result = "true";
                     }
                     else
                     {
-                        userInfo[0] = "";
-                        userInfo[1] = "";
-                        userInfo[2] = "";
-                        userInfo[3] = "";
                         result = "false";
                     }
                 }
-                    conn.Close();
+                conn.Close();
             }
             catch (Exception e)
             {
@@ -62,13 +61,48 @@ namespace Business
             Boolean result = false;
             try
             {
-                Array.Clear(userInfo, 0, userInfo.Length);
+
                 result = true;
             }
             catch (Exception)
             {
                 result = false;
             }
+            return result;
+        }
+
+        public String addBetaling(String qrCode, double dblBedrag)
+        {
+            Gebruiker gebruiker = GlobalInfo.Gebruiker;
+
+            String result = "success";
+            MySqlConnection conn = new MySqlConnection(strConString);
+            MySqlCommand cmd = new MySqlCommand("INSERT INTO Transacties (idCode, idOntvanger, Bedrag, Datum, Uitgevoerd) VALUES (@idCode, @idOntvanger, @Bedrag, now(), 0)", conn);
+            cmd.Parameters.AddWithValue("idCode", qrCode);
+            cmd.Parameters.AddWithValue("idOntvanger", gebruiker.UserID);
+            cmd.Parameters.AddWithValue("Bedrag", dblBedrag);
+
+            try
+            {
+                conn.Open();
+
+                int resultconn = cmd.ExecuteNonQuery();
+
+                if (!(resultconn == 0))
+                {
+                    result = "success";
+                }
+                else
+                {
+                    result = "false";
+                }
+
+            }
+            catch (Exception e)
+            {
+                result = "ID" + gebruiker.UserID + "Fout: " + e.ToString();
+            }
+
 
 
             return result;
