@@ -13,7 +13,7 @@ namespace Business
             try
             {
                 string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
-                String strNaamFolder = @"C:\Users\" + Environment.UserName + @"\AppData\Roaming\NetPay";
+                String strNaamFolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\NetPay";
                 if (!(System.IO.Directory.Exists(strNaamFolder)))
                 {
                     System.IO.Directory.CreateDirectory(strNaamFolder);

@@ -12,6 +12,8 @@ namespace Business
 
     public class ProductManager
     {
+        //Filepath
+        String strFilePath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\NetPay\Products.json";
 
         //Producten toevoegen
         public String addProduct(String naam, String omschrijving, double prijs)
@@ -19,7 +21,7 @@ namespace Business
             try
             {
                 //Bestand ophalen
-                var JsonData = System.IO.File.ReadAllText(@"C:\Users\" + Environment.UserName + @"\AppData\Roaming\NetPay\Products.json");
+                var JsonData = System.IO.File.ReadAllText(strFilePath);
 
                 //Bestand uitlezen en omzetten naar lijst
                 var productsLijst = JsonConvert.DeserializeObject<List<Product>>(JsonData)
@@ -36,7 +38,7 @@ namespace Business
 
                     //Lijst converteren en weer toevoegen aan bestand
                     JsonData = JsonConvert.SerializeObject(productsLijst);
-                    System.IO.File.WriteAllText(@"C:\Users\" + Environment.UserName + @"\AppData\Roaming\NetPay\Products.json", JsonData);
+                    System.IO.File.WriteAllText(strFilePath, JsonData);
 
                     return "success";
                 }
@@ -61,7 +63,7 @@ namespace Business
             try
             {
                 //Bestand ophalen
-                var JsonData = System.IO.File.ReadAllText(@"C:\Users\" + Environment.UserName + @"\AppData\Roaming\NetPay\Products.json");
+                var JsonData = System.IO.File.ReadAllText(strFilePath);
 
                 //Bestand uitlezen en omzetten naar lijst
                 var productsLijst = JsonConvert.DeserializeObject<List<Product>>(JsonData)
@@ -73,7 +75,7 @@ namespace Business
 
                 //Lijst converteren en weer toevoegen aan bestand
                 JsonData = JsonConvert.SerializeObject(productsLijst);
-                System.IO.File.WriteAllText(@"C:\Users\" + Environment.UserName + @"\AppData\Roaming\NetPay\Products.json", JsonData);
+                System.IO.File.WriteAllText(strFilePath, JsonData);
 
                 return "success";
 
@@ -89,7 +91,7 @@ namespace Business
         public List<Product> getAllProducts()
         {
             //Bestand ophalen
-            var JsonData = System.IO.File.ReadAllText(@"C:\Users\" + Environment.UserName + @"\AppData\Roaming\NetPay\Products.json");
+            var JsonData = System.IO.File.ReadAllText(strFilePath);
 
             //Bestand uitlezen en omzetten naar lijst
             var productsLijst = JsonConvert.DeserializeObject<List<Product>>(JsonData);
