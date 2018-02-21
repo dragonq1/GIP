@@ -360,7 +360,15 @@ namespace GIP
 
         private void btnBetalen_Click(object sender, EventArgs e)
         {
-           BI.startBetaling();
+            if (FactuurList.Any())
+            {
+                BI.startBetaling();
+            }
+            else
+            {
+                MessageBox.Show("Geen producten gevonden!", "Fout!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+
 
         }
 
