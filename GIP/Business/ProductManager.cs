@@ -44,6 +44,8 @@ namespace Business
                 }
                 else
                 {
+
+                    //Product bestaat al
                     return "excists";
                 }
 
