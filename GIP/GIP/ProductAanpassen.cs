@@ -14,7 +14,6 @@ namespace GIP
     public partial class ProductAanpassen : MetroForm
     {
         Business.ProductManager PMB = new Business.ProductManager();
-        ProductManager PM = new ProductManager();
 
         public ProductAanpassen()
         {
@@ -22,11 +21,15 @@ namespace GIP
             loadInfo();
         }
 
+
+
         public String Naam { get; set; }
         public String OSV { get; set; }
         public double Prijs { get; set; }
 
-        public ProductAanpassen(String naam, String omschrijving, double prijs)
+        private ProductManager PM = null;
+
+        public ProductAanpassen(String naam, String omschrijving, double prijs, ProductManager productManager)
         {
             Naam = naam;
             OSV = omschrijving;
@@ -34,6 +37,7 @@ namespace GIP
 
             InitializeComponent();
             loadInfo();
+            PM = productManager;
         }
 
         public void loadInfo()

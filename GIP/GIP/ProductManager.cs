@@ -36,11 +36,12 @@ namespace GIP
         {
             InitializeComponent();
             loadProducts();
+
         }
 
         private void btnPToevoegen_Click(object sender, EventArgs e)
         {
-            ProductToevoegen PT = new ProductToevoegen();
+            ProductToevoegen PT = new ProductToevoegen(this);
             PT.Show();
         }
 
@@ -59,8 +60,7 @@ namespace GIP
                 //Aanpas button
                 if (e.ColumnIndex == 3)
                 {
-                    ProductAanpassen PA = new ProductAanpassen(strIDNaam, strOSV, prijs);
-
+                    ProductAanpassen PA = new ProductAanpassen(strIDNaam, strOSV, prijs, this);
                     PA.Show();
 
                     //Verwijder button

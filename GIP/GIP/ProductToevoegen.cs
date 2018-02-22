@@ -15,12 +15,14 @@ namespace GIP
     {
         //Vars
         Business.ProductManager PMB = new Business.ProductManager();
-        ProductManager PM = new ProductManager();
 
-        public ProductToevoegen()
+        public ProductToevoegen(ProductManager productmanager)
         {
             InitializeComponent();
+            PM = productmanager;
         }
+
+        private ProductManager PM = null;
 
         private void btnToevoegen_Click(object sender, EventArgs e)
         {
