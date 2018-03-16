@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
+using CryptSharp;
 
 namespace Business
 {
@@ -41,6 +42,8 @@ namespace Business
                         int intID = Convert.ToInt16(datareader["idGebruiker"]);
                         GlobalInfo.Gebruiker = new Gebruiker(intID);                     
                         result = "true";
+
+                        //bool verify Crypter.Equals()
                     }
                     else
                     {
