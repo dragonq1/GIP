@@ -20,9 +20,8 @@ namespace Business
             //Vars
             String result = "false";
             MySqlConnection conn = new MySqlConnection(strConString);
-            MySqlCommand cmd = new MySqlCommand("SELECT Gebruikersnaam, Voornaam, Achternaam, Saldo, idGebruiker FROM Gebruikers WHERE Gebruikersnaam = @Gebruikersnaam AND Wachtwoord = @Wachtwoord;", conn);
+            MySqlCommand cmd = new MySqlCommand("SELECT Gebruikersnaam, Voornaam, Achternaam, Saldo, idGebruiker, Wachtwoord FROM Gebruikers WHERE Gebruikersnaam = @Gebruikersnaam;", conn);
             cmd.Parameters.AddWithValue("Gebruikersnaam", gebruikersnaam);
-            cmd.Parameters.AddWithValue("Wachtwoord", wachtwoord);
 
             try
             {
@@ -40,10 +39,20 @@ namespace Business
                         String strAchternaam = datareader["Achternaam"].ToString();
                         double dblSaldo = double.Parse(datareader["Saldo"].ToString());
                         int intID = Convert.ToInt16(datareader["idGebruiker"]);
+                        String strHash = datareader["Wachtwoord"].ToString();
                         GlobalInfo.Gebruiker = new Gebruiker(intID);                     
-                        result = "true";
 
-                        //bool verify Crypter.Equals()
+
+                        bool verify = Crypter.CheckPassword(wachtwoord, strHash);
+
+                        if(verify)
+                        {
+                            result = "true";
+                        }
+                        else
+                        {
+                            result = "false";
+                        }
                     }
                     else
                     {
