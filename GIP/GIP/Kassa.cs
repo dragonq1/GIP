@@ -95,43 +95,46 @@ namespace GIP
         //Buttons op factuur linken
         private void dvgFactuur_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            var senderGrid = (DataGridView)sender;
-
-            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
-                e.RowIndex >= 0)
+            if (bBetaling == false)
             {
-                int rowIndex = e.RowIndex;
-                String strPNaam = dvgFactuur.Rows[rowIndex].Cells[0].Value.ToString();
-                var FI = FactuurList.Single(F => F.PNaam == strPNaam);
+                var senderGrid = (DataGridView)sender;
 
-                //+1
-                if (e.ColumnIndex == 4)
+                if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
+                    e.RowIndex >= 0)
                 {
-                    FI.addOne();
-                    loadFactuur();
-                }
+                    int rowIndex = e.RowIndex;
+                    String strPNaam = dvgFactuur.Rows[rowIndex].Cells[0].Value.ToString();
+                    var FI = FactuurList.Single(F => F.PNaam == strPNaam);
 
-                //-1
-                else if (e.ColumnIndex == 5)
-                {
-                    if (FI.Aantal > 1)
+                    //+1
+                    if (e.ColumnIndex == 4)
                     {
-                        FI.minOne();
+                        FI.addOne();
                         loadFactuur();
                     }
+
+                    //-1
+                    else if (e.ColumnIndex == 5)
+                    {
+                        if (FI.Aantal > 1)
+                        {
+                            FI.minOne();
+                            loadFactuur();
+                        }
+                        else
+                        {
+                            //Niets -> kan niet onder 0
+                        }
+                    }
+
+                    //Verwijderen
                     else
                     {
-                        //Niets -> kan niet onder 0
+                        FactuurList.Remove(FI);
+                        loadFactuur();
                     }
-                }
 
-                //Verwijderen
-                else
-                {
-                    FactuurList.Remove(FI);
-                    loadFactuur();
                 }
-
             }
         }
 
@@ -176,10 +179,9 @@ namespace GIP
 
                 }
             }
-            else
-            {
-                MessageBox.Show("Je kan geen aanpasingen doen tijdens een betaling!", "Fout!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
+            
+                
+            
         }
 
         //Prodcuten op factuur inladen of refreshen
