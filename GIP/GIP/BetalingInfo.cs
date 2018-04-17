@@ -101,6 +101,7 @@ namespace GIP
                 Boolean resultQR = createQRCode(qrCode);
                 if (resultQR)
                 {
+                    _parent.bBetaling = true;
                     QRCode = qrCode;
                     lblStatus.Visible = true;
                     timerBetaling.Start();
@@ -131,6 +132,7 @@ namespace GIP
                 _parent.FactuurList.Clear();
                 _parent.loadFactuur();
                 MessageBox.Show("Transactie geslaagd!", "Transactie", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                _parent.bBetaling = false;
             }
             else
             {

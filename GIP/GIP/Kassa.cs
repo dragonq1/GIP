@@ -16,6 +16,7 @@ namespace GIP
         Business.ProductManager PMB = new Business.ProductManager();
         Business.FactuurItem FIE = new Business.FactuurItem();
         BetalingInfo BI;
+        public Boolean bBetaling = false;
 
         //Factuur lijst
         public List<Business.FactuurItem> FactuurList = new List<Business.FactuurItem>();
@@ -137,40 +138,47 @@ namespace GIP
         //Producten toevoegen aan factuur
         private void dvgProducten_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            var senderGrid = (DataGridView)sender;
-
-            if (e.RowIndex >= 0)
+            if (bBetaling == false)
             {
-                int intRow = e.RowIndex;
-                int intKolom = e.ColumnIndex;
+                var senderGrid = (DataGridView)sender;
 
-                //Cell tag ophalen
-                String strPNaam = dgvProducten.Rows[intRow].Cells[intKolom].Tag.ToString();
-
-                //Lijst ophalen
-                List<Business.Product> productsLijst = PMB.getAllProducts();
-
-                //Producten info ophalen
-                var product = productsLijst.Single(Product => Product.Naam == strPNaam);
-                String strPrijs = product.getPrijs().ToString();
-
-
-
-                int checkIndex = FactuurList.FindIndex(F => F.PNaam == strPNaam);
-
-                if (checkIndex >= 0)
+                if (e.RowIndex >= 0)
                 {
-                    var FI = FactuurList.Single(F => F.PNaam == strPNaam);
-                    FI.addOne();
-                }
-                else
-                {
-                    Business.FactuurItem FI = new Business.FactuurItem(strPNaam, double.Parse(strPrijs), 1, double.Parse(strPrijs));
-                    FactuurList.Add(FI);
-                }
+                    int intRow = e.RowIndex;
+                    int intKolom = e.ColumnIndex;
 
-                loadFactuur();
+                    //Cell tag ophalen
+                    String strPNaam = dgvProducten.Rows[intRow].Cells[intKolom].Tag.ToString();
 
+                    //Lijst ophalen
+                    List<Business.Product> productsLijst = PMB.getAllProducts();
+
+                    //Producten info ophalen
+                    var product = productsLijst.Single(Product => Product.Naam == strPNaam);
+                    String strPrijs = product.getPrijs().ToString();
+
+
+
+                    int checkIndex = FactuurList.FindIndex(F => F.PNaam == strPNaam);
+
+                    if (checkIndex >= 0)
+                    {
+                        var FI = FactuurList.Single(F => F.PNaam == strPNaam);
+                        FI.addOne();
+                    }
+                    else
+                    {
+                        Business.FactuurItem FI = new Business.FactuurItem(strPNaam, double.Parse(strPrijs), 1, double.Parse(strPrijs));
+                        FactuurList.Add(FI);
+                    }
+
+                    loadFactuur();
+
+                }
+            }
+            else
+            {
+                MessageBox.Show("Je kan geen aanpasingen doen tijdens een betaling!", "Fout!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -356,6 +364,7 @@ namespace GIP
             FactuurList.Clear();
             loadFactuur();
             BI.clearInfo();
+            bBetaling = false;
         }
 
         private void btnBetalen_Click(object sender, EventArgs e)
