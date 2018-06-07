@@ -11,6 +11,7 @@ namespace Business
 
     public class Comm
     {
+        //Test voor commit
         //Vars
         public String strConString = "server=185.114.157.174;user id=dragv_GIP;persistsecurityinfo=True;database=dragv_GIP;password=3gVtD0Id2";
      
