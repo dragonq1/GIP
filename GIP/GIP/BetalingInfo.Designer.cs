@@ -161,7 +161,7 @@
             // 
             // timerBetaling
             // 
-            this.timerBetaling.Interval = 500;
+            this.timerBetaling.Interval = 2000;
             this.timerBetaling.Tick += new System.EventHandler(this.timerBetaling_tick);
             // 
             // BetalingInfo
