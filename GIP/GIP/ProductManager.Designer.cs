@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProductManager));
             this.dgvProducts = new System.Windows.Forms.DataGridView();
             this.btnPToevoegen = new System.Windows.Forms.Button();
             this.btnMenu = new System.Windows.Forms.Button();
@@ -57,13 +58,14 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvProducts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProducts.Location = new System.Drawing.Point(53, 54);
+            this.dgvProducts.Location = new System.Drawing.Point(40, 44);
+            this.dgvProducts.Margin = new System.Windows.Forms.Padding(2);
             this.dgvProducts.Name = "dgvProducts";
             this.dgvProducts.ReadOnly = true;
             this.dgvProducts.RowHeadersVisible = false;
             this.dgvProducts.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvProducts.RowTemplate.Height = 30;
-            this.dgvProducts.Size = new System.Drawing.Size(983, 619);
+            this.dgvProducts.Size = new System.Drawing.Size(737, 503);
             this.dgvProducts.TabIndex = 0;
             this.dgvProducts.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProducten_CellContentClick);
             // 
@@ -71,10 +73,9 @@
             // 
             this.btnPToevoegen.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnPToevoegen.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPToevoegen.Location = new System.Drawing.Point(1045, 54);
-            this.btnPToevoegen.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPToevoegen.Location = new System.Drawing.Point(784, 44);
             this.btnPToevoegen.Name = "btnPToevoegen";
-            this.btnPToevoegen.Size = new System.Drawing.Size(238, 46);
+            this.btnPToevoegen.Size = new System.Drawing.Size(178, 37);
             this.btnPToevoegen.TabIndex = 2;
             this.btnPToevoegen.Text = "Product toevoegen";
             this.btnPToevoegen.UseVisualStyleBackColor = true;
@@ -84,10 +85,9 @@
             // 
             this.btnMenu.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnMenu.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMenu.Location = new System.Drawing.Point(1045, 627);
-            this.btnMenu.Margin = new System.Windows.Forms.Padding(4);
+            this.btnMenu.Location = new System.Drawing.Point(784, 509);
             this.btnMenu.Name = "btnMenu";
-            this.btnMenu.Size = new System.Drawing.Size(238, 46);
+            this.btnMenu.Size = new System.Drawing.Size(178, 37);
             this.btnMenu.TabIndex = 3;
             this.btnMenu.Text = "Menu";
             this.btnMenu.UseVisualStyleBackColor = true;
@@ -97,10 +97,9 @@
             // 
             this.btnRefresh.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnRefresh.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRefresh.Location = new System.Drawing.Point(1045, 108);
-            this.btnRefresh.Margin = new System.Windows.Forms.Padding(4);
+            this.btnRefresh.Location = new System.Drawing.Point(784, 88);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(238, 46);
+            this.btnRefresh.Size = new System.Drawing.Size(178, 37);
             this.btnRefresh.TabIndex = 4;
             this.btnRefresh.Text = "Opnieuw inladen";
             this.btnRefresh.UseVisualStyleBackColor = true;
@@ -112,14 +111,19 @@
             // 
             // ProductManager
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1311, 696);
+            this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ClientSize = new System.Drawing.Size(983, 566);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.btnMenu);
             this.Controls.Add(this.btnPToevoegen);
             this.Controls.Add(this.dgvProducts);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ProductManager";
+            this.Padding = new System.Windows.Forms.Padding(15, 60, 15, 16);
             this.Style = MetroFramework.MetroColorStyle.Red;
             this.Text = "ProductManager";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

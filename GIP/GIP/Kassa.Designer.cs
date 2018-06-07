@@ -36,6 +36,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Kassa));
             this.dgvProducten = new System.Windows.Forms.DataGridView();
             this.btnMenu = new System.Windows.Forms.Button();
             this.dvgFactuur = new System.Windows.Forms.DataGridView();
@@ -69,8 +70,8 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvProducten.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgvProducten.GridColor = System.Drawing.SystemColors.ActiveBorder;
-            this.dgvProducten.Location = new System.Drawing.Point(3, 39);
-            this.dgvProducten.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvProducten.Location = new System.Drawing.Point(2, 32);
+            this.dgvProducten.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvProducten.Name = "dgvProducten";
             this.dgvProducten.ReadOnly = true;
             this.dgvProducten.RowHeadersVisible = false;
@@ -79,7 +80,7 @@
             this.dgvProducten.RowTemplate.DefaultCellStyle.NullValue = null;
             this.dgvProducten.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvProducten.RowTemplate.Height = 49;
-            this.dgvProducten.Size = new System.Drawing.Size(828, 866);
+            this.dgvProducten.Size = new System.Drawing.Size(621, 704);
             this.dgvProducten.TabIndex = 0;
             this.dgvProducten.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dvgProducten_CellContentClick);
             this.dgvProducten.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dvgProducten_CellContentClick);
@@ -87,10 +88,9 @@
             // btnMenu
             // 
             this.btnMenu.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMenu.Location = new System.Drawing.Point(1801, 145);
-            this.btnMenu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnMenu.Location = new System.Drawing.Point(1351, 118);
             this.btnMenu.Name = "btnMenu";
-            this.btnMenu.Size = new System.Drawing.Size(193, 46);
+            this.btnMenu.Size = new System.Drawing.Size(145, 37);
             this.btnMenu.TabIndex = 4;
             this.btnMenu.Text = "Menu";
             this.btnMenu.UseVisualStyleBackColor = true;
@@ -125,8 +125,8 @@
             dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dvgFactuur.DefaultCellStyle = dataGridViewCellStyle7;
             this.dvgFactuur.GridColor = System.Drawing.SystemColors.ActiveBorder;
-            this.dvgFactuur.Location = new System.Drawing.Point(836, 39);
-            this.dvgFactuur.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dvgFactuur.Location = new System.Drawing.Point(627, 32);
+            this.dvgFactuur.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dvgFactuur.MultiSelect = false;
             this.dvgFactuur.Name = "dvgFactuur";
             this.dvgFactuur.ReadOnly = true;
@@ -141,7 +141,7 @@
             this.dvgFactuur.RowHeadersVisible = false;
             this.dvgFactuur.RowTemplate.Height = 30;
             this.dvgFactuur.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dvgFactuur.Size = new System.Drawing.Size(959, 866);
+            this.dvgFactuur.Size = new System.Drawing.Size(719, 704);
             this.dvgFactuur.TabIndex = 5;
             this.dvgFactuur.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dvgFactuur_CellContentClick);
             this.dvgFactuur.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dvgFactuur_CellContentClick);
@@ -188,20 +188,18 @@
             // 
             this.lblTPrijs.AutoSize = true;
             this.lblTPrijs.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTPrijs.Location = new System.Drawing.Point(827, 908);
-            this.lblTPrijs.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTPrijs.Location = new System.Drawing.Point(620, 738);
             this.lblTPrijs.Name = "lblTPrijs";
-            this.lblTPrijs.Size = new System.Drawing.Size(292, 46);
+            this.lblTPrijs.Size = new System.Drawing.Size(234, 37);
             this.lblTPrijs.TabIndex = 6;
             this.lblTPrijs.Text = "Totaal prijs: 0 euro";
             // 
             // btnNieuw
             // 
             this.btnNieuw.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNieuw.Location = new System.Drawing.Point(1801, 41);
-            this.btnNieuw.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnNieuw.Location = new System.Drawing.Point(1351, 33);
             this.btnNieuw.Name = "btnNieuw";
-            this.btnNieuw.Size = new System.Drawing.Size(193, 46);
+            this.btnNieuw.Size = new System.Drawing.Size(145, 37);
             this.btnNieuw.TabIndex = 7;
             this.btnNieuw.Text = "Nieuw";
             this.btnNieuw.UseVisualStyleBackColor = true;
@@ -210,10 +208,9 @@
             // btnBetalen
             // 
             this.btnBetalen.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBetalen.Location = new System.Drawing.Point(1801, 94);
-            this.btnBetalen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnBetalen.Location = new System.Drawing.Point(1351, 76);
             this.btnBetalen.Name = "btnBetalen";
-            this.btnBetalen.Size = new System.Drawing.Size(193, 46);
+            this.btnBetalen.Size = new System.Drawing.Size(145, 37);
             this.btnBetalen.TabIndex = 8;
             this.btnBetalen.Text = "Betalen";
             this.btnBetalen.UseVisualStyleBackColor = true;
@@ -222,10 +219,9 @@
             // btnTest
             // 
             this.btnTest.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTest.Location = new System.Drawing.Point(1801, 198);
-            this.btnTest.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnTest.Location = new System.Drawing.Point(1351, 161);
             this.btnTest.Name = "btnTest";
-            this.btnTest.Size = new System.Drawing.Size(193, 46);
+            this.btnTest.Size = new System.Drawing.Size(145, 37);
             this.btnTest.TabIndex = 9;
             this.btnTest.Text = "Test QR-Code";
             this.btnTest.UseVisualStyleBackColor = true;
@@ -233,9 +229,11 @@
             // 
             // Kassa
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(2185, 934);
+            this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ClientSize = new System.Drawing.Size(1455, 759);
             this.Controls.Add(this.btnTest);
             this.Controls.Add(this.btnBetalen);
             this.Controls.Add(this.btnNieuw);
@@ -244,9 +242,10 @@
             this.Controls.Add(this.btnMenu);
             this.Controls.Add(this.dgvProducten);
             this.DisplayHeader = false;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Kassa";
-            this.Padding = new System.Windows.Forms.Padding(20, 37, 20, 20);
+            this.Padding = new System.Windows.Forms.Padding(15, 30, 15, 16);
             this.Style = MetroFramework.MetroColorStyle.Red;
             this.Text = "Kassa";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

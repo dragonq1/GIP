@@ -34,15 +34,16 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BetalingInfo));
             this.lblWelkom = new System.Windows.Forms.Label();
             this.dgvProducten = new System.Windows.Forms.DataGridView();
+            this.Product = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Aantal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Prijs = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblTPrijs = new System.Windows.Forms.Label();
             this.pbQR = new System.Windows.Forms.PictureBox();
             this.lblStatus = new System.Windows.Forms.Label();
             this.timerBetaling = new System.Windows.Forms.Timer(this.components);
-            this.Product = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Aantal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Prijs = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducten)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbQR)).BeginInit();
             this.SuspendLayout();
@@ -92,47 +93,6 @@
             this.dgvProducten.TabIndex = 1;
             this.dgvProducten.Visible = false;
             // 
-            // lblTPrijs
-            // 
-            this.lblTPrijs.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblTPrijs.AutoSize = true;
-            this.lblTPrijs.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTPrijs.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.lblTPrijs.Location = new System.Drawing.Point(25, 940);
-            this.lblTPrijs.Name = "lblTPrijs";
-            this.lblTPrijs.Size = new System.Drawing.Size(347, 54);
-            this.lblTPrijs.TabIndex = 7;
-            this.lblTPrijs.Text = "Totaal prijs: 0 euro";
-            this.lblTPrijs.Visible = false;
-            // 
-            // pbQR
-            // 
-            this.pbQR.BackColor = System.Drawing.Color.Transparent;
-            this.pbQR.Location = new System.Drawing.Point(567, 70);
-            this.pbQR.Name = "pbQR";
-            this.pbQR.Size = new System.Drawing.Size(703, 703);
-            this.pbQR.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbQR.TabIndex = 8;
-            this.pbQR.TabStop = false;
-            this.pbQR.Visible = false;
-            // 
-            // lblStatus
-            // 
-            this.lblStatus.AutoSize = true;
-            this.lblStatus.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStatus.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.lblStatus.Location = new System.Drawing.Point(653, 776);
-            this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(713, 81);
-            this.lblStatus.TabIndex = 9;
-            this.lblStatus.Text = "Wachten op bevestiging...";
-            this.lblStatus.Visible = false;
-            // 
-            // timerBetaling
-            // 
-            this.timerBetaling.Interval = 500;
-            this.timerBetaling.Tick += new System.EventHandler(this.timerBetaling_tick);
-            // 
             // Product
             // 
             this.Product.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -163,10 +123,53 @@
             this.Prijs.Name = "Prijs";
             this.Prijs.ReadOnly = true;
             // 
+            // lblTPrijs
+            // 
+            this.lblTPrijs.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblTPrijs.AutoSize = true;
+            this.lblTPrijs.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTPrijs.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.lblTPrijs.Location = new System.Drawing.Point(25, 940);
+            this.lblTPrijs.Name = "lblTPrijs";
+            this.lblTPrijs.Size = new System.Drawing.Size(280, 45);
+            this.lblTPrijs.TabIndex = 7;
+            this.lblTPrijs.Text = "Totaal prijs: 0 euro";
+            this.lblTPrijs.Visible = false;
+            // 
+            // pbQR
+            // 
+            this.pbQR.BackColor = System.Drawing.Color.Transparent;
+            this.pbQR.Location = new System.Drawing.Point(567, 70);
+            this.pbQR.Name = "pbQR";
+            this.pbQR.Size = new System.Drawing.Size(703, 703);
+            this.pbQR.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbQR.TabIndex = 8;
+            this.pbQR.TabStop = false;
+            this.pbQR.Visible = false;
+            // 
+            // lblStatus
+            // 
+            this.lblStatus.AutoSize = true;
+            this.lblStatus.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStatus.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.lblStatus.Location = new System.Drawing.Point(653, 776);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(568, 65);
+            this.lblStatus.TabIndex = 9;
+            this.lblStatus.Text = "Wachten op bevestiging...";
+            this.lblStatus.Visible = false;
+            // 
+            // timerBetaling
+            // 
+            this.timerBetaling.Interval = 500;
+            this.timerBetaling.Tick += new System.EventHandler(this.timerBetaling_tick);
+            // 
             // BetalingInfo
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 28F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1557, 1017);
             this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.pbQR);
@@ -175,6 +178,7 @@
             this.Controls.Add(this.lblWelkom);
             this.DisplayHeader = false;
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "BetalingInfo";
             this.Padding = new System.Windows.Forms.Padding(30, 67, 30, 32);
